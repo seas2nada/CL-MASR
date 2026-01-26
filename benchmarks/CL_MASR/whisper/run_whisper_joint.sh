@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 # Configuration
 WHISPER_VARIANT="whisper-small"
-CONFIG_FILE="hparams/train_lwf.yaml"
+CONFIG_FILE="hparams/train_joint.yaml"
 # Check for data folder arguments
 if [ -z "$1" ]; then
     echo "Usage: $0 <path-to-data-folder>"
@@ -21,5 +21,5 @@ else
     exit 1
 fi
 # Run the training script
-echo "Running LwF with $WHISPER_VARIANT using data from $DATA_FOLDER..."
-CUDA_VISIBLE_DEVICES=$GPU python train_lwf.py "$CONFIG_FILE" --whisper_variant "$WHISPER_VARIANT" --data_folder "$DATA_FOLDER"
+echo "Running Joint with $WHISPER_VARIANT using data from $DATA_FOLDER..."
+CUDA_VISIBLE_DEVICES=$GPU python train_joint.py "$CONFIG_FILE" --whisper_variant "$WHISPER_VARIANT" --data_folder "$DATA_FOLDER"
