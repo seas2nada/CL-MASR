@@ -1,0 +1,32 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0  # Use the ref you want to point at
+    hooks:
+      - id: trailing-whitespace
+        types: [file, text]
+        exclude: ".*char_[a-z]{2}.txt"
+      - id: end-of-file-fixer
+        types: [python]
+      - id: requirements-txt-fixer
+      - id: mixed-line-ending
+        types: [python]
+        args: [--fix=no]
+      - id: check-added-large-files
+        args: [--maxkb=1024]
+
+  - repo: https://github.com/psf/black
+    rev: 19.10b0
+    hooks:
+      - id: black
+        types: [python]
+        additional_dependencies: ['click==8.0.4']
+  - repo: https://github.com/PyCQA/flake8
+    rev: 7.0.0
+    hooks:
+      - id: flake8
+        types: [python]
+
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.23.0
+    hooks:
+      - id: yamllint

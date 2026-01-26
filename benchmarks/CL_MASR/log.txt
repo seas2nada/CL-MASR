@@ -1,0 +1,79 @@
+Changed directory to whisper.
+Running LwF with whisper-base using data from /DB/CL-MASR...
+/home/dh/Workspace/benchmarks/benchmarks/CL_MASR/random_idxes.txt exists. Skipping download
+speechbrain.core - Beginning experiment!
+speechbrain.core - Experiment folder: results/whisper-base/LwF/0
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Locale: en
+common_voice_prepare - Computing clip durations...
+common_voice_prepare - Clip durations for train.tsv already computed
+common_voice_prepare - Clip durations for dev.tsv already computed
+common_voice_prepare - Clip durations for test.tsv already computed
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Merging TSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/en/train_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 36003.113043083984
+common_voice_prepare - Added 6352 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/en/dev_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3605.9760000000024
+common_voice_prepare - Added 593 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/en/test_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3608.9050068027204
+common_voice_prepare - Added 615 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Creating data manifest CSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/train.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/dev.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/test.csv)...
+common_voice_prepare - Done!
+speechbrain.core - Info: precision arg from hparam file is used
+speechbrain.core - Info: max_grad_norm arg from hparam file is used
+speechbrain.core - Info: nonfinite_patience arg from hparam file is used
+speechbrain.core - Info: ckpt_interval_minutes arg from hparam file is used
+speechbrain.core - Gradscaler enabled: True. Using precision: fp16.
+speechbrain.core - 52.0M trainable parameters in ASR
+speechbrain.core - Exception:
+Traceback (most recent call last):
+  File "/home/dh/Workspace/benchmarks/benchmarks/CL_MASR/whisper/train_lwf.py", line 575, in <module>
+    train(hparams, run_opts)
+  File "/home/dh/Workspace/benchmarks/benchmarks/CL_MASR/whisper/train_lwf.py", line 370, in train
+    test(
+  File "/home/dh/Workspace/benchmarks/benchmarks/CL_MASR/whisper/train_lwf.py", line 342, in test
+    asr_brain.evaluate(
+  File "/home/dh/Workspace/benchmarks/speechbrain/speechbrain/core.py", line 1689, in evaluate
+    loss = self.evaluate_batch(batch, stage=Stage.TEST)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dh/Workspace/benchmarks/speechbrain/speechbrain/core.py", line 1303, in evaluate_batch
+    out = self.compute_forward(batch, stage=stage)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dh/Workspace/benchmarks/benchmarks/CL_MASR/whisper/train_lwf.py", line 47, in compute_forward
+    enc_out, logits, _ = self.modules.whisper(wavs, bos_tokens)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dh/Workspace/benchmarks/speechbrain/speechbrain/lobes/models/huggingface_transformers/whisper.py", line 188, in forward
+    logits, attn = self.forward_decoder(
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dh/Workspace/benchmarks/speechbrain/speechbrain/lobes/models/huggingface_transformers/whisper.py", line 336, in forward_decoder
+    attn = attn.view(attn.shape[0] * attn.shape[1], *attn.shape[2:])
+           ^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'view'
