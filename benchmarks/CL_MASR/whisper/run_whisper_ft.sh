@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 # Configuration
-WHISPER_VARIANT="whisper-base"
+WHISPER_VARIANT="whisper-small"
 CONFIG_FILE="hparams/train_ft.yaml"
 # Check for data folder arguments
 if [ -z "$1" ]; then
