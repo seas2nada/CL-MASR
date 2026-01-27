@@ -76,5 +76,5 @@ if __name__ == "__main__":
     # ✅ checkpointer가 보는 경로를 infer에서 덮어쓰기
     hparams["checkpointer"].checkpoints_dir = pathlib.Path(ckpt_dir)
 
-    locales = [x.strip() for x in str(infer_locales).split(",") if x.strip()]
+    locales = [x.strip() for x in infer_locales]
     test_only(hparams, run_opts, locales, wer_file=wer_file)
