@@ -1,0 +1,16 @@
+locale,group,WER_before(%),WER_after(%),WER_delta(after-before),CER_before(%),CER_after(%),before_file,after_file
+en,base,,,,,,/home/asml02/Workspace/CL-MASR/benchmarks/CL_MASR/en/wer_test_before.txt,/home/asml02/Workspace/CL-MASR/benchmarks/CL_MASR/en/wer_test_after_eo.txt
+de,base,,,,,,/home/asml02/Workspace/CL-MASR/benchmarks/CL_MASR/de/wer_test_before.txt,/home/asml02/Workspace/CL-MASR/benchmarks/CL_MASR/de/wer_test_after_eo.txt
+
+eo,new,,,,,,,/home/asml02/Workspace/CL-MASR/benchmarks/CL_MASR/eo/wer_test_after_eo.txt
+
+SUMMARY,,,,,,,,
+base_mean_WER_before,base,,,,,,,
+base_mean_WER_after,base,,,,,,,
+base_mean_WER_delta,base,,,,,,
+new_mean_WER_after,new,,,,,,
+
+MISSING,,,,,,,,
+en,base,,,,,,/home/asml02/Workspace/CL-MASR/benchmarks/CL_MASR/en/wer_test_before.txt,/home/asml02/Workspace/CL-MASR/benchmarks/CL_MASR/en/wer_test_after_eo.txt
+de,base,,,,,,/home/asml02/Workspace/CL-MASR/benchmarks/CL_MASR/de/wer_test_before.txt,/home/asml02/Workspace/CL-MASR/benchmarks/CL_MASR/de/wer_test_after_eo.txt
+eo,new,,,,,,,/home/asml02/Workspace/CL-MASR/benchmarks/CL_MASR/eo/wer_test_after_eo.txt

@@ -12,6 +12,7 @@ fi
 
 DATA_FOLDER="$1"
 GPU="$2"
+CONFIG_FILE="$3"
 
 # Navigate to whisper directory
 if [ -d "whisper" ]; then
