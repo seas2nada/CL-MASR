@@ -54,8 +54,10 @@ class ASR(sb.Brain):
                 old_bos_tokens = bos_tokens.clone()
                 mask = sum(
                     old_bos_tokens.flatten() == i for i in self.masked_token_ids
-                ).bool()
-                old_bos_tokens.flatten()[mask] = self.tokenizer.unk_token_id
+                )
+                if not isinstance(mask, int):
+                    mask = mask.bool()
+                    old_bos_tokens.flatten()[mask] = self.tokenizer.unk_token_id
                 _, soft_logits, _ = self.old_model(wavs, old_bos_tokens)
 
         hyps = None
@@ -386,20 +388,22 @@ def train(hparams, run_opts):
             },
         )
 
-        # Add new language token
-        new_tokens = [f"<|{locale.lower()}|>"]
+        # TODO: add new language token
+
+        # # Add new language token
+        # new_tokens = [f"<|{locale.lower()}|>"]
         tokenizer = hparams["whisper"].tokenizer
-        tokenizer._additional_special_tokens += new_tokens
-        tokenizer.supported_languages.update({locale.lower(): locale.lower()})
-        tokenizer.to_language_codes.update({locale.lower(): locale.lower()})
+        # tokenizer._additional_special_tokens += new_tokens
+        # tokenizer.supported_languages.update({locale.lower(): locale.lower()})
+        # tokenizer.to_language_codes.update({locale.lower(): locale.lower()})
 
-        # Check if already in Whisper tokenizer's vocabulary
-        new_tokens = sorted(
-            list(set(new_tokens) - set(tokenizer.get_vocab().keys()))
-        )
+        # # Check if already in Whisper tokenizer's vocabulary
+        # new_tokens = sorted(
+        #     list(set(new_tokens) - set(tokenizer.get_vocab().keys()))
+        # )
 
-        # Add to Whisper tokenizer's vocabulary
-        tokenizer.add_tokens(new_tokens)
+        # # Add to Whisper tokenizer's vocabulary
+        # tokenizer.add_tokens(new_tokens)
 
         # Log total number of tokens
         logging.info(
@@ -407,7 +411,7 @@ def train(hparams, run_opts):
         )
 
         # Add a new random embedding for the new language token
-        hparams["whisper"].model.resize_token_embeddings(len(tokenizer))
+        # hparams["whisper"].model.resize_token_embeddings(len(tokenizer))
 
         # Log total number of tokens
         logging.info(
@@ -442,9 +446,9 @@ def train(hparams, run_opts):
         asr_brain.tokenizer = tokenizer
         asr_brain.old_model = old_model
         asr_brain.num_old_embeddings = num_old_embeddings
-        asr_brain.masked_token_ids = set(
-            tokenizer.convert_tokens_to_ids(list(new_tokens))
-        )
+        # asr_brain.masked_token_ids = set(
+        #     tokenizer.convert_tokens_to_ids(list(new_tokens))
+        # )
 
         # Training
         hparams["valid_dataloader_kwargs"].pop("ckpt_prefix", None)

@@ -12,17 +12,18 @@ skip_test: False
 
 # Data preparation
 base_locales: [en, zh-CN, de, es, ru, fr, pt, ja, tr, pl]
-new_locales: [eo, ia]
+# new_locales: [eo, ia]
+new_locales: [en, de, es, ru, pl]
 data_folder: !PLACEHOLDER
 max_durations: [36000, 3600, 3600]  # Maximum total durations in seconds for train, dev, and test splits for each locale
 
 # Output directories
-output_folder: !ref results/whisper-small-eo-ia/<experiment_name>/<seed>
+output_folder: !ref results/whisper-small-test-indomain/<experiment_name>/<seed>
 save_folder: !ref <output_folder>/save
 
 # Training parameters
 train_batch_size: 4
-valid_batch_size: 16
+valid_batch_size: 1
 train_num_workers: 6
 valid_num_workers: 6
 
@@ -33,8 +34,8 @@ avoid_if_longer_than: 10  # Remove utterances longer than 10s (open microphones)
 ignore_index: -100  # For cross-entropy loss
 label_smoothing: 0
 
-num_epochs: 20
-lr: 0.0001
+num_epochs: 2
+lr: 0.00001
 improvement_threshold: 0.0025
 annealing_factor: 0.8
 lwf_lambda: 20.0
