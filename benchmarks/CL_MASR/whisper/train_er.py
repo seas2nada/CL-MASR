@@ -347,20 +347,22 @@ def train(hparams, run_opts):
             },
         )
 
-        # Add new language token
-        new_tokens = [f"<|{locale.lower()}|>"]
+        # TODO: Add new language token
+        
+        # # Add new language token
+        # new_tokens = [f"<|{locale.lower()}|>"]
         tokenizer = hparams["whisper"].tokenizer
-        tokenizer._additional_special_tokens += new_tokens
-        tokenizer.supported_languages.update({locale.lower(): locale.lower()})
-        tokenizer.to_language_codes.update({locale.lower(): locale.lower()})
+        # tokenizer._additional_special_tokens += new_tokens
+        # tokenizer.supported_languages.update({locale.lower(): locale.lower()})
+        # tokenizer.to_language_codes.update({locale.lower(): locale.lower()})
 
-        # Check if already in Whisper tokenizer's vocabulary
-        new_tokens = sorted(
-            list(set(new_tokens) - set(tokenizer.get_vocab().keys()))
-        )
+        # # Check if already in Whisper tokenizer's vocabulary
+        # new_tokens = sorted(
+        #     list(set(new_tokens) - set(tokenizer.get_vocab().keys()))
+        # )
 
-        # Add to Whisper tokenizer's vocabulary
-        tokenizer.add_tokens(new_tokens)
+        # # Add to Whisper tokenizer's vocabulary
+        # tokenizer.add_tokens(new_tokens)
 
         # Log total number of tokens
         logging.info(
@@ -368,7 +370,7 @@ def train(hparams, run_opts):
         )
 
         # Add a new random embedding for the new language token
-        hparams["whisper"].model.resize_token_embeddings(len(tokenizer))
+        # hparams["whisper"].model.resize_token_embeddings(len(tokenizer))
 
         # Log total number of tokens
         logging.info(

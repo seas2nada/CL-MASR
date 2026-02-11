@@ -1,6 +1,6 @@
 #!/bin/bash
 # Configuration
-WHISPER_VARIANT="whisper-small"
+WHISPER_VARIANT="whisper-large-v2"
 CONFIG_FILE="hparams/train_ewc.yaml"
 # Check for data folder arguments
 if [ -z "$1" ]; then
