@@ -1,24 +1,23 @@
 # ############################################################################
 # Model: Whisper (encoder-decoder) + cross-entropy loss
-# Authors: Luca Della Libera 2023, Pooneh Mousavi 2023
+# Method: AdaLoRA (PEFT) per-locale independent adapters
 # ############################################################################
 
-experiment_name: EWC
+experiment_name: AdaLoRA
 
 seed: 0
 __set_seed: !apply:torch.manual_seed [!ref <seed>]
 
 skip_test: False
-skip_ewc: False
 
 # Data preparation
-base_locales: [en, zh-CN, de, es, ru, fr, pt, ja, tr, pl]
+base_locales: [en]
 new_locales: [rw, eo, kab, lg, mhr, ckb, ab, kmr, fy-NL, ia]
 data_folder: !PLACEHOLDER
-max_durations: [36000, 3600, 3600]  # Maximum total durations in seconds for train, dev, and test splits for each locale
+max_durations: [36000, 3600, 3600]
 
 # Output directories
-output_folder: !ref results/whisper-small-eo-ia/<experiment_name>/<seed>
+output_folder: !ref results/<whisper_variant>/<experiment_name>/<seed>
 save_folder: !ref <output_folder>/save
 
 # Training parameters
@@ -29,24 +28,43 @@ valid_num_workers: 6
 
 sample_rate: 16000
 sorting: ascending
-avoid_if_longer_than: 10  # Remove utterances longer than 10s (open microphones)
+avoid_if_longer_than: 10
 
-ignore_index: -100  # For cross-entropy loss
+ignore_index: -100
 label_smoothing: 0
 
 num_epochs: 10
-lr: 0.0001
+lr: 0.0003
 improvement_threshold: 0.0025
 annealing_factor: 0.8
-ewc_lambda: 5.0
-ewc_alpha: 0.5
 
+# === AdaLoRA-specific ===
+per_locale_add_lang_token: True
+eval_base_before: False
+train_embeddings: True    # 권장: False (True면 전체 embedding 열림)
+freeze_encoder: True       # True면 encoder LoRA 파라미터를 requires_grad=False 처리
+
+# AdaLoRA params (기본 권장값)
+adalora_r: 32
+adalora_init_r: 32
+adalora_tinit: 200
+adalora_tfinal: 1000
+adalora_deltaT: 10
+adalora_beta1: 0.85
+adalora_beta2: 0.85
+adalora_lora_alpha: 64
+adalora_lora_dropout: 0.05
+
+# Whisper에서 일반적으로 잘 맞는 suffix들
+# (만약 "No modules were targeted" 뜨면 여기 리스트를 모델 구조에 맞게 조정해야 함)
+adalora_target_modules: [q_proj, k_proj, v_proj, out_proj, fc1, fc2]
+
+# Whisper
 whisper_variant: whisper-large-v2
 encoder_only: False
 freeze: False
-freeze_encoder: True
 
-max_target_length: 448  # Must be <= 448 (Whisper maximum target length)
+max_target_length: 448
 nonfinite_patience: 10
 max_grad_norm: 5.0
 precision: fp16
@@ -54,7 +72,7 @@ gradient_checkpointing: False
 ckpt_interval_minutes: 600
 
 max_gen_tokens: 80
-forced_decoder_locale: null  # Set dynamically
+forced_decoder_locale: null
 normalize_transcripts: True
 
 # Dataloader options
@@ -98,7 +116,7 @@ wer_computer: !name:speechbrain.utils.metric_stats.ErrorRateStats
 cer_computer: !name:speechbrain.utils.metric_stats.ErrorRateStats
     split_tokens: True
 
-# Counters, checkpointers, loggers, etc.
+# Counters, checkpointers, loggers
 epoch_counter: !new:speechbrain.utils.epoch_loop.EpochCounter
     limit: !ref <num_epochs>
 

@@ -12,7 +12,7 @@ skip_test: False
 
 # Data preparation
 base_locales: [en, zh-CN, de, es, ru, fr, pt, ja, tr, pl]
-new_locales: [eo, ia]
+new_locales: [rw, eo, kab, lg, mhr, ckb, ab, kmr, fy-NL, ia]
 data_folder: !PLACEHOLDER
 max_durations: [36000, 3600, 3600]  # Maximum total durations in seconds for train, dev, and test splits for each locale
 
@@ -33,7 +33,7 @@ avoid_if_longer_than: 10  # Remove utterances longer than 10s (open microphones)
 ignore_index: -100  # For cross-entropy loss
 label_smoothing: 0
 
-num_epochs: 20
+num_epochs: 10
 lr: 0.0001
 improvement_threshold: 0.0025
 annealing_factor: 0.8

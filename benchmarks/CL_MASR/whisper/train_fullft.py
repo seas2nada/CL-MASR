@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
 
 """Recipe for fine-tuning a Whisper-based ASR system on Common Voice in a continual
-learning fashion via (task-aware) Learning to Prompt (https://arxiv.org/abs/2112.08654).
+learning fashion.
 
 To run this recipe, do the following:
-> python train_l2p.py hparams/train_l2p.yaml
-
-NOTE: since there is no forgetting by design, only the current locale is tested.
+> python train_ft.py hparams/train_ft.yaml
 
 Authors
  * Luca Della Libera 2023
@@ -28,15 +26,9 @@ from speechbrain.utils.distributed import run_on_main
 
 from common_voice_prepare import prepare_common_voice
 
+import copy
 
 class ASR(sb.Brain):
-
-    def __init__(self, modules, hparams, run_opts, opt_class=None, checkpointer=None, **kwargs):
-        super().__init__(modules=modules, hparams=hparams, run_opts=run_opts, opt_class=opt_class, checkpointer=checkpointer, **kwargs)
-        self.modules.prompt_pool = PromptPool(
-            hparams["new_locales"], d_prompt=hparams["d_prompt"]
-        )
-
     def compute_forward(self, batch, stage):
         """Forward computations from the waveform batches to the output probabilities."""
         batch = batch.to(self.device)
@@ -46,35 +38,17 @@ class ASR(sb.Brain):
         # Forward encoder + decoder
         if self.hparams.gradient_checkpointing:
             wavs.requires_grad_()
-            enc_out = torch.utils.checkpoint.checkpoint(
-                self.modules.whisper.forward_encoder, wavs,
-            )
-            enc_out = torch.utils.checkpoint.checkpoint(
-                self.modules.prompt_pool,
-                enc_out,
-                self.hparams.forced_decoder_locale,
-            )
-            logits, _, _ = torch.utils.checkpoint.checkpoint(
-                self.modules.whisper.forward_decoder, enc_out, bos_tokens
+            enc_out, logits, _ = torch.utils.checkpoint.checkpoint(
+                self.modules.whisper, wavs, bos_tokens,
             )
         else:
-            mel = self.modules.whisper._get_mel(wavs)
-            enc_out = self.modules.whisper.forward_encoder(mel)
-            enc_out = self.modules.prompt_pool(
-                enc_out, self.hparams.forced_decoder_locale
-            )
-            logits, _, _ = self.modules.whisper.forward_decoder(
-                enc_out, bos_tokens
-            )
+            enc_out, logits, _ = self.modules.whisper(wavs, bos_tokens)
 
         hyps = None
         if stage != sb.Stage.TRAIN:
-            locale = self.hparams.forced_decoder_locale
-            if locale not in self.hparams.base_locales:
-                locale = self.hparams.base_locales[0]
             hyps, _ = self.modules.whisper.generate(
                 audio_features=enc_out,
-                forced_decoder_locale=locale,
+                forced_decoder_locale=self.hparams.forced_decoder_locale,
                 max_gen_tokens=self.hparams.max_gen_tokens,
             )
 
@@ -150,59 +124,6 @@ class ASR(sb.Brain):
             )
             with open(self.hparams.wer_file, "w", encoding="utf-8") as w:
                 self.wer_metric.write_stats(w)
-
-
-class PromptPool(torch.nn.Module):
-    """Prompt pool that defines a dict of trainable prompts, one for each locale.
-    The prompt corresponding to the given locale is added to the input.
-
-    Arguments
-    ---------
-    locales : list[str]
-        The list of locales.
-    d_prompt : int, optional
-        The prompt size.
-
-    Examples
-    --------
-    >>> prompt_pool = PromptPool(["en", "de"], d_prompt=1280)
-    >>> input = torch.randn(2, 40, 1280)
-    >>> output = prompt_pool(input, locale="en")
-
-    """
-
-    def __init__(self, locales, d_prompt=768):
-        super().__init__()
-        self.locales = locales
-        self.d_prompt = d_prompt
-        self.prompts = torch.nn.ParameterDict(
-            {
-                locale: torch.nn.Parameter(torch.randn(d_prompt, d_prompt)).to("cuda")
-                for locale in locales
-            }
-        )
-
-    def forward(self, input, locale=None):
-        """Forward pass.
-
-        Arguments
-        ---------
-        input : torch.Tensor
-            A batch of inputs.
-        locale : str, optional
-            The input locale.
-
-        Returns
-        -------
-        torch.Tensor
-            The summation of the input and
-            its corresponding prompt.
-
-        """
-        if locale is None or locale not in self.prompts:
-            return input
-        prompt = self.prompts[locale]
-        return input @ prompt
 
 
 def dataio_prepare(hparams, tokenizer):
@@ -414,8 +335,12 @@ def train(hparams, run_opts):
     #     hparams, run_opts, hparams["base_locales"], "wer_test_before.txt",
     # )
 
-    # Train on new locales
+    base_template = copy.deepcopy(hparams["whisper"].model).cpu()
+
+    # 1) locale별 독립 adapter 학습
     for i, locale in enumerate(hparams["new_locales"]):
+        # locale loop 시작마다
+        hparams["whisper"].model = copy.deepcopy(base_template).to("cuda")
         # Multi-gpu (ddp) save data preparation
         run_on_main(
             prepare_common_voice,
@@ -426,11 +351,28 @@ def train(hparams, run_opts):
             },
         )
 
-        # Define tokenizer
+        # Add new language token
+        new_tokens = [f"<|{locale.lower()}|>"]
         tokenizer = hparams["whisper"].tokenizer
+        tokenizer._additional_special_tokens += new_tokens
+        tokenizer.supported_languages.update({locale.lower(): locale.lower()})
+        tokenizer.to_language_codes.update({locale.lower(): locale.lower()})
 
-        # Freeze the whole model to avoid forgetting
-        hparams["whisper"].model.requires_grad_(False)
+        # Check if already in Whisper tokenizer's vocabulary
+        new_tokens = sorted(
+            list(set(new_tokens) - set(tokenizer.get_vocab().keys()))
+        )
+
+        # Add to Whisper tokenizer's vocabulary
+        tokenizer.add_tokens(new_tokens)
+
+        # Log total number of tokens
+        logging.info(
+            f"Total number of tokens: {hparams['whisper'].model.decoder.embed_tokens.num_embeddings}"
+        )
+
+        # Add a new random embedding for the new language token
+        hparams["whisper"].model.resize_token_embeddings(len(tokenizer))
 
         # Log total number of tokens
         logging.info(
@@ -479,27 +421,9 @@ def train(hparams, run_opts):
         test(
             hparams,
             run_opts,
-            [locale],
-            # hparams["base_locales"] + hparams["new_locales"][: i + 1],
+            [locale],  # 요청대로 FT된 language에 대해 test
             f"wer_test_after_{locale}.txt",
         )
-
-        # Copy previous lines (no forgetting by design)
-        if not hparams["skip_test"]:
-            save_file = asr_brain.hparams.train_logger.save_file
-            with open(save_file, encoding="utf-8") as f:
-                lines = f.readlines()
-            previous_lines = []
-            count = 0
-            for line in lines[::-1]:
-                if line.startswith("Epoch loaded:"):
-                    previous_lines.append(line)
-                    count += 1
-                if count == len(hparams["base_locales"]) + i + 1:
-                    break
-            previous_lines = previous_lines[::-1]
-            with open(save_file, "w", encoding="utf-8") as f:
-                f.writelines(lines[:-1] + previous_lines)
 
 
 def profile(hparams, run_opts):

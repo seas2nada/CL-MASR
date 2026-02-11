@@ -1,0 +1,1935 @@
+Already in whisper directory.
+Running BitFit training with whisper-small using data from /DB/CL-MASR...
+/home/dh/Workspace/CL-MASR/benchmarks/CL_MASR/random_idxes.txt exists. Skipping download
+speechbrain.utils.quirks - Applied quirks (see `speechbrain.utils.quirks`): [disable_jit_profiling, allow_tf32]
+speechbrain.utils.quirks - Excluded quirks specified by the `SB_DISABLE_QUIRKS` environment (comma-separated list): []
+speechbrain.core - Beginning experiment!
+speechbrain.core - Experiment folder: results/whisper-small/BitFit/0
+common_voice_prepare - Acquiring lock on /DB/CL-MASR/.prepare.lock...
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Locale: rw
+common_voice_prepare - Computing clip durations...
+common_voice_prepare - Clip durations for train.tsv already computed
+common_voice_prepare - Clip durations for dev.tsv already computed
+common_voice_prepare - Clip durations for test.tsv already computed
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Merging TSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/rw/train_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 36003.57599999984
+common_voice_prepare - Added 7121 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/rw/dev_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3603.780000000002
+common_voice_prepare - Added 653 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/rw/test_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3600.432
+common_voice_prepare - Added 663 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Creating data manifest CSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/train.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/dev.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/test.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Releasing lock on /DB/CL-MASR/.prepare.lock...
+root - [BitFit] locale=rw freeze_encoder=True bitfit_ln=True trainable=39,962,880/241,735,680 (16.5316%)
+root - [BitFit] sample trainables:
+  decoder.embed_tokens.weight
+  decoder.layers.0.self_attn.v_proj.bias
+  decoder.layers.0.self_attn.q_proj.bias
+  decoder.layers.0.self_attn.out_proj.bias
+  decoder.layers.0.self_attn_layer_norm.bias
+  decoder.layers.0.encoder_attn.v_proj.bias
+  decoder.layers.0.encoder_attn.q_proj.bias
+  decoder.layers.0.encoder_attn.out_proj.bias
+  decoder.layers.0.encoder_attn_layer_norm.bias
+  decoder.layers.0.fc1.bias
+  decoder.layers.0.fc2.bias
+  decoder.layers.0.final_layer_norm.bias
+  decoder.layers.1.self_attn.v_proj.bias
+  decoder.layers.1.self_attn.q_proj.bias
+  decoder.layers.1.self_attn.out_proj.bias
+  decoder.layers.1.self_attn_layer_norm.bias
+  decoder.layers.1.encoder_attn.v_proj.bias
+  decoder.layers.1.encoder_attn.q_proj.bias
+  decoder.layers.1.encoder_attn.out_proj.bias
+  decoder.layers.1.encoder_attn_layer_norm.bias
+  decoder.layers.1.fc1.bias
+  decoder.layers.1.fc2.bias
+  decoder.layers.1.final_layer_norm.bias
+  decoder.layers.2.self_attn.v_proj.bias
+  decoder.layers.2.self_attn.q_proj.bias
+  decoder.layers.2.self_attn.out_proj.bias
+  decoder.layers.2.self_attn_layer_norm.bias
+  decoder.layers.2.encoder_attn.v_proj.bias
+  decoder.layers.2.encoder_attn.q_proj.bias
+  decoder.layers.2.encoder_attn.out_proj.bias
+  decoder.layers.2.encoder_attn_layer_norm.bias
+  decoder.layers.2.fc1.bias
+  decoder.layers.2.fc2.bias
+  decoder.layers.2.final_layer_norm.bias
+  decoder.layers.3.self_attn.v_proj.bias
+  decoder.layers.3.self_attn.q_proj.bias
+  decoder.layers.3.self_attn.out_proj.bias
+  decoder.layers.3.self_attn_layer_norm.bias
+  decoder.layers.3.encoder_attn.v_proj.bias
+  decoder.layers.3.encoder_attn.q_proj.bias
+  decoder.layers.3.encoder_attn.out_proj.bias
+  decoder.layers.3.encoder_attn_layer_norm.bias
+  decoder.layers.3.fc1.bias
+  decoder.layers.3.fc2.bias
+  decoder.layers.3.final_layer_norm.bias
+  decoder.layers.4.self_attn.v_proj.bias
+  decoder.layers.4.self_attn.q_proj.bias
+  decoder.layers.4.self_attn.out_proj.bias
+  decoder.layers.4.self_attn_layer_norm.bias
+  decoder.layers.4.encoder_attn.v_proj.bias
+speechbrain.core - Run option precision from hparams is used
+speechbrain.core - Run option max_grad_norm from hparams is used
+speechbrain.core - Run option nonfinite_patience from hparams is used
+speechbrain.core - Run option ckpt_interval_minutes from hparams is used
+speechbrain.core - Gradscaler enabled: `True`
+speechbrain.core - Using training precision: `--precision=fp16`
+speechbrain.core - Using evaluation precision: `--eval_precision=fp32`
+speechbrain.core - ASR Model Statistics:
+* Total Number of Trainable Parameters: 40.0M
+* Total Number of Parameters: 241.7M
+* Trainable Parameters represent 16.5316% of the total size.
+speechbrain.utils.checkpoints - Loading a checkpoint from results/whisper-small/BitFit/0/save/bitfit_rw/CKPT+2026-02-09+09-56-25+00
+root - [BitFit] loaded 133 bias tensors from results/whisper-small/BitFit/0/bitfit_adapters/rw
+common_voice_prepare - Acquiring lock on /DB/CL-MASR/.prepare.lock...
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Locale: rw
+common_voice_prepare - Computing clip durations...
+common_voice_prepare - Clip durations for train.tsv already computed
+common_voice_prepare - Clip durations for dev.tsv already computed
+common_voice_prepare - Clip durations for test.tsv already computed
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Merging TSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/rw/train_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 36003.57599999984
+common_voice_prepare - Added 7121 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/rw/dev_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3603.780000000002
+common_voice_prepare - Added 653 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/rw/test_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3600.432
+common_voice_prepare - Added 663 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Creating data manifest CSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/train.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/dev.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/test.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Releasing lock on /DB/CL-MASR/.prepare.lock...
+speechbrain.core - Run option precision from hparams is used
+speechbrain.core - Run option max_grad_norm from hparams is used
+speechbrain.core - Run option nonfinite_patience from hparams is used
+speechbrain.core - Run option ckpt_interval_minutes from hparams is used
+speechbrain.core - Gradscaler enabled: `True`
+speechbrain.core - Using training precision: `--precision=fp16`
+speechbrain.core - Using evaluation precision: `--eval_precision=fp32`
+speechbrain.core - The model has no trainable parameters!
+speechbrain.core - ASR Model Statistics:
+* Total Number of Trainable Parameters: 0
+* Total Number of Parameters: 241.7M
+* Trainable Parameters represent 0.0000% of the total size.
+speechbrain.utils.train_logger - Epoch loaded: 10 - test loss: 2.39, test CER: 34.97, test WER: 80.69
+common_voice_prepare - Acquiring lock on /DB/CL-MASR/.prepare.lock...
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Locale: eo
+common_voice_prepare - Computing clip durations...
+common_voice_prepare - Clip durations for train.tsv already computed
+common_voice_prepare - Clip durations for dev.tsv already computed
+common_voice_prepare - Clip durations for test.tsv already computed
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Merging TSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/eo/train_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 36000.34800453522
+common_voice_prepare - Added 5803 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/eo/dev_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3604.0640136054426
+common_voice_prepare - Added 597 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/eo/test_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3602.253995464856
+common_voice_prepare - Added 593 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Creating data manifest CSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/train.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/dev.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/test.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Releasing lock on /DB/CL-MASR/.prepare.lock...
+root - [BitFit] locale=eo freeze_encoder=True bitfit_ln=True trainable=39,963,648/241,736,448 (16.5319%)
+root - [BitFit] sample trainables:
+  decoder.embed_tokens.weight
+  decoder.layers.0.self_attn.v_proj.bias
+  decoder.layers.0.self_attn.q_proj.bias
+  decoder.layers.0.self_attn.out_proj.bias
+  decoder.layers.0.self_attn_layer_norm.bias
+  decoder.layers.0.encoder_attn.v_proj.bias
+  decoder.layers.0.encoder_attn.q_proj.bias
+  decoder.layers.0.encoder_attn.out_proj.bias
+  decoder.layers.0.encoder_attn_layer_norm.bias
+  decoder.layers.0.fc1.bias
+  decoder.layers.0.fc2.bias
+  decoder.layers.0.final_layer_norm.bias
+  decoder.layers.1.self_attn.v_proj.bias
+  decoder.layers.1.self_attn.q_proj.bias
+  decoder.layers.1.self_attn.out_proj.bias
+  decoder.layers.1.self_attn_layer_norm.bias
+  decoder.layers.1.encoder_attn.v_proj.bias
+  decoder.layers.1.encoder_attn.q_proj.bias
+  decoder.layers.1.encoder_attn.out_proj.bias
+  decoder.layers.1.encoder_attn_layer_norm.bias
+  decoder.layers.1.fc1.bias
+  decoder.layers.1.fc2.bias
+  decoder.layers.1.final_layer_norm.bias
+  decoder.layers.2.self_attn.v_proj.bias
+  decoder.layers.2.self_attn.q_proj.bias
+  decoder.layers.2.self_attn.out_proj.bias
+  decoder.layers.2.self_attn_layer_norm.bias
+  decoder.layers.2.encoder_attn.v_proj.bias
+  decoder.layers.2.encoder_attn.q_proj.bias
+  decoder.layers.2.encoder_attn.out_proj.bias
+  decoder.layers.2.encoder_attn_layer_norm.bias
+  decoder.layers.2.fc1.bias
+  decoder.layers.2.fc2.bias
+  decoder.layers.2.final_layer_norm.bias
+  decoder.layers.3.self_attn.v_proj.bias
+  decoder.layers.3.self_attn.q_proj.bias
+  decoder.layers.3.self_attn.out_proj.bias
+  decoder.layers.3.self_attn_layer_norm.bias
+  decoder.layers.3.encoder_attn.v_proj.bias
+  decoder.layers.3.encoder_attn.q_proj.bias
+  decoder.layers.3.encoder_attn.out_proj.bias
+  decoder.layers.3.encoder_attn_layer_norm.bias
+  decoder.layers.3.fc1.bias
+  decoder.layers.3.fc2.bias
+  decoder.layers.3.final_layer_norm.bias
+  decoder.layers.4.self_attn.v_proj.bias
+  decoder.layers.4.self_attn.q_proj.bias
+  decoder.layers.4.self_attn.out_proj.bias
+  decoder.layers.4.self_attn_layer_norm.bias
+  decoder.layers.4.encoder_attn.v_proj.bias
+speechbrain.core - Run option precision from hparams is used
+speechbrain.core - Run option max_grad_norm from hparams is used
+speechbrain.core - Run option nonfinite_patience from hparams is used
+speechbrain.core - Run option ckpt_interval_minutes from hparams is used
+speechbrain.core - Gradscaler enabled: `True`
+speechbrain.core - Using training precision: `--precision=fp16`
+speechbrain.core - Using evaluation precision: `--eval_precision=fp32`
+speechbrain.core - ASR Model Statistics:
+* Total Number of Trainable Parameters: 40.0M
+* Total Number of Parameters: 241.7M
+* Trainable Parameters represent 16.5319% of the total size.
+speechbrain.utils.checkpoints - Would load a checkpoint here, but none found yet.
+speechbrain.utils.epoch_loop - Going into epoch 1
+speechbrain.utils.train_logger - epoch: 1, lr: 3.00e-04 - train loss: 1.07 - valid loss: 7.15e-01, valid CER: 7.48, valid WER: 29.09
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_eo/CKPT+2026-02-09+14-54-39+00
+speechbrain.utils.epoch_loop - Going into epoch 2
+speechbrain.nnet.schedulers - Changing lr from 0.0003 to 0.00024
+speechbrain.utils.train_logger - epoch: 2, lr: 3.00e-04 - train loss: 3.74e-01 - valid loss: 7.49e-01, valid CER: 7.72, valid WER: 28.72
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_eo/CKPT+2026-02-09+14-57-45+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_eo/CKPT+2026-02-09+14-54-39+00
+speechbrain.utils.epoch_loop - Going into epoch 3
+speechbrain.utils.train_logger - epoch: 3, lr: 2.40e-04 - train loss: 1.45e-01 - valid loss: 7.00e-01, valid CER: 6.36, valid WER: 24.71
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_eo/CKPT+2026-02-09+15-01-05+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_eo/CKPT+2026-02-09+14-57-45+00
+speechbrain.utils.epoch_loop - Going into epoch 4
+speechbrain.nnet.schedulers - Changing lr from 0.00024 to 0.00019
+speechbrain.utils.train_logger - epoch: 4, lr: 2.40e-04 - train loss: 7.41e-02 - valid loss: 7.16e-01, valid CER: 6.22, valid WER: 24.20
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_eo/CKPT+2026-02-09+15-04-20+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_eo/CKPT+2026-02-09+15-01-05+00
+speechbrain.utils.epoch_loop - Going into epoch 5
+speechbrain.utils.train_logger - epoch: 5, lr: 1.92e-04 - train loss: 3.65e-02 - valid loss: 7.02e-01, valid CER: 6.40, valid WER: 22.86
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_eo/CKPT+2026-02-09+15-07-35+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_eo/CKPT+2026-02-09+15-04-20+00
+speechbrain.utils.epoch_loop - Going into epoch 6
+speechbrain.nnet.schedulers - Changing lr from 0.00019 to 0.00015
+speechbrain.utils.train_logger - epoch: 6, lr: 1.92e-04 - train loss: 1.98e-02 - valid loss: 7.09e-01, valid CER: 6.17, valid WER: 22.21
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_eo/CKPT+2026-02-09+15-10-52+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_eo/CKPT+2026-02-09+15-07-35+00
+speechbrain.utils.epoch_loop - Going into epoch 7
+speechbrain.nnet.schedulers - Changing lr from 0.00015 to 0.00012
+speechbrain.utils.train_logger - epoch: 7, lr: 1.54e-04 - train loss: 1.22e-02 - valid loss: 7.12e-01, valid CER: 5.70, valid WER: 22.21
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_eo/CKPT+2026-02-09+15-14-07+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_eo/CKPT+2026-02-09+15-10-52+00
+speechbrain.utils.epoch_loop - Going into epoch 8
+speechbrain.utils.train_logger - epoch: 8, lr: 1.23e-04 - train loss: 6.32e-03 - valid loss: 7.08e-01, valid CER: 5.47, valid WER: 21.98
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_eo/CKPT+2026-02-09+15-17-20+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_eo/CKPT+2026-02-09+15-14-07+00
+speechbrain.utils.epoch_loop - Going into epoch 9
+speechbrain.nnet.schedulers - Changing lr from 0.00012 to 9.8e-05
+speechbrain.utils.train_logger - epoch: 9, lr: 1.23e-04 - train loss: 4.17e-03 - valid loss: 7.12e-01, valid CER: 5.41, valid WER: 21.47
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_eo/CKPT+2026-02-09+15-20-34+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_eo/CKPT+2026-02-09+15-17-20+00
+speechbrain.utils.epoch_loop - Going into epoch 10
+speechbrain.nnet.schedulers - Changing lr from 9.8e-05 to 7.9e-05
+speechbrain.utils.train_logger - epoch: 10, lr: 9.83e-05 - train loss: 2.50e-03 - valid loss: 7.14e-01, valid CER: 5.44, valid WER: 21.98
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_eo/CKPT+2026-02-09+15-23-50+00
+root - [BitFit] loaded 133 bias tensors from results/whisper-small/BitFit/0/bitfit_adapters/eo
+common_voice_prepare - Acquiring lock on /DB/CL-MASR/.prepare.lock...
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Locale: eo
+common_voice_prepare - Computing clip durations...
+common_voice_prepare - Clip durations for train.tsv already computed
+common_voice_prepare - Clip durations for dev.tsv already computed
+common_voice_prepare - Clip durations for test.tsv already computed
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Merging TSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/eo/train_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 36000.34800453522
+common_voice_prepare - Added 5803 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/eo/dev_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3604.0640136054426
+common_voice_prepare - Added 597 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/eo/test_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3602.253995464856
+common_voice_prepare - Added 593 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Creating data manifest CSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/train.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/dev.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/test.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Releasing lock on /DB/CL-MASR/.prepare.lock...
+speechbrain.core - Run option precision from hparams is used
+speechbrain.core - Run option max_grad_norm from hparams is used
+speechbrain.core - Run option nonfinite_patience from hparams is used
+speechbrain.core - Run option ckpt_interval_minutes from hparams is used
+speechbrain.core - Gradscaler enabled: `True`
+speechbrain.core - Using training precision: `--precision=fp16`
+speechbrain.core - Using evaluation precision: `--eval_precision=fp32`
+speechbrain.core - The model has no trainable parameters!
+speechbrain.core - ASR Model Statistics:
+* Total Number of Trainable Parameters: 0
+* Total Number of Parameters: 241.7M
+* Trainable Parameters represent 0.0000% of the total size.
+speechbrain.utils.train_logger - Epoch loaded: 10 - test loss: 8.48e-01, test CER: 6.51, test WER: 22.94
+common_voice_prepare - Acquiring lock on /DB/CL-MASR/.prepare.lock...
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Locale: kab
+common_voice_prepare - Computing clip durations...
+common_voice_prepare - Clip durations for train.tsv already computed
+common_voice_prepare - Clip durations for dev.tsv already computed
+common_voice_prepare - Clip durations for test.tsv already computed
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Merging TSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/kab/train_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 36003.696099773064
+common_voice_prepare - Added 10534 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/kab/dev_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3601.992000000001
+common_voice_prepare - Added 1001 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/kab/test_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3604.5119999999943
+common_voice_prepare - Added 944 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Creating data manifest CSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/train.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/dev.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/test.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Releasing lock on /DB/CL-MASR/.prepare.lock...
+root - [BitFit] locale=kab freeze_encoder=True bitfit_ln=True trainable=39,964,416/241,737,216 (16.5322%)
+root - [BitFit] sample trainables:
+  decoder.embed_tokens.weight
+  decoder.layers.0.self_attn.v_proj.bias
+  decoder.layers.0.self_attn.q_proj.bias
+  decoder.layers.0.self_attn.out_proj.bias
+  decoder.layers.0.self_attn_layer_norm.bias
+  decoder.layers.0.encoder_attn.v_proj.bias
+  decoder.layers.0.encoder_attn.q_proj.bias
+  decoder.layers.0.encoder_attn.out_proj.bias
+  decoder.layers.0.encoder_attn_layer_norm.bias
+  decoder.layers.0.fc1.bias
+  decoder.layers.0.fc2.bias
+  decoder.layers.0.final_layer_norm.bias
+  decoder.layers.1.self_attn.v_proj.bias
+  decoder.layers.1.self_attn.q_proj.bias
+  decoder.layers.1.self_attn.out_proj.bias
+  decoder.layers.1.self_attn_layer_norm.bias
+  decoder.layers.1.encoder_attn.v_proj.bias
+  decoder.layers.1.encoder_attn.q_proj.bias
+  decoder.layers.1.encoder_attn.out_proj.bias
+  decoder.layers.1.encoder_attn_layer_norm.bias
+  decoder.layers.1.fc1.bias
+  decoder.layers.1.fc2.bias
+  decoder.layers.1.final_layer_norm.bias
+  decoder.layers.2.self_attn.v_proj.bias
+  decoder.layers.2.self_attn.q_proj.bias
+  decoder.layers.2.self_attn.out_proj.bias
+  decoder.layers.2.self_attn_layer_norm.bias
+  decoder.layers.2.encoder_attn.v_proj.bias
+  decoder.layers.2.encoder_attn.q_proj.bias
+  decoder.layers.2.encoder_attn.out_proj.bias
+  decoder.layers.2.encoder_attn_layer_norm.bias
+  decoder.layers.2.fc1.bias
+  decoder.layers.2.fc2.bias
+  decoder.layers.2.final_layer_norm.bias
+  decoder.layers.3.self_attn.v_proj.bias
+  decoder.layers.3.self_attn.q_proj.bias
+  decoder.layers.3.self_attn.out_proj.bias
+  decoder.layers.3.self_attn_layer_norm.bias
+  decoder.layers.3.encoder_attn.v_proj.bias
+  decoder.layers.3.encoder_attn.q_proj.bias
+  decoder.layers.3.encoder_attn.out_proj.bias
+  decoder.layers.3.encoder_attn_layer_norm.bias
+  decoder.layers.3.fc1.bias
+  decoder.layers.3.fc2.bias
+  decoder.layers.3.final_layer_norm.bias
+  decoder.layers.4.self_attn.v_proj.bias
+  decoder.layers.4.self_attn.q_proj.bias
+  decoder.layers.4.self_attn.out_proj.bias
+  decoder.layers.4.self_attn_layer_norm.bias
+  decoder.layers.4.encoder_attn.v_proj.bias
+speechbrain.core - Run option precision from hparams is used
+speechbrain.core - Run option max_grad_norm from hparams is used
+speechbrain.core - Run option nonfinite_patience from hparams is used
+speechbrain.core - Run option ckpt_interval_minutes from hparams is used
+speechbrain.core - Gradscaler enabled: `True`
+speechbrain.core - Using training precision: `--precision=fp16`
+speechbrain.core - Using evaluation precision: `--eval_precision=fp32`
+speechbrain.core - ASR Model Statistics:
+* Total Number of Trainable Parameters: 40.0M
+* Total Number of Parameters: 241.7M
+* Trainable Parameters represent 16.5322% of the total size.
+speechbrain.utils.checkpoints - Would load a checkpoint here, but none found yet.
+speechbrain.utils.epoch_loop - Going into epoch 1
+speechbrain.utils.train_logger - epoch: 1, lr: 3.00e-04 - train loss: 1.49 - valid loss: 1.18, valid CER: 37.64, valid WER: 80.60
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_kab/CKPT+2026-02-09+15-30-59+00
+speechbrain.utils.epoch_loop - Going into epoch 2
+speechbrain.utils.train_logger - epoch: 2, lr: 3.00e-04 - train loss: 7.63e-01 - valid loss: 1.14, valid CER: 36.15, valid WER: 76.87
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_kab/CKPT+2026-02-09+15-36-34+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_kab/CKPT+2026-02-09+15-30-59+00
+speechbrain.utils.epoch_loop - Going into epoch 3
+speechbrain.nnet.schedulers - Changing lr from 0.0003 to 0.00024
+speechbrain.utils.train_logger - epoch: 3, lr: 3.00e-04 - train loss: 5.29e-01 - valid loss: 1.18, valid CER: 35.20, valid WER: 76.26
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_kab/CKPT+2026-02-09+15-41-46+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_kab/CKPT+2026-02-09+15-36-34+00
+speechbrain.utils.epoch_loop - Going into epoch 4
+speechbrain.nnet.schedulers - Changing lr from 0.00024 to 0.00019
+speechbrain.utils.train_logger - epoch: 4, lr: 2.40e-04 - train loss: 3.66e-01 - valid loss: 1.24, valid CER: 35.28, valid WER: 75.68
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_kab/CKPT+2026-02-09+15-46-48+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_kab/CKPT+2026-02-09+15-41-46+00
+speechbrain.utils.epoch_loop - Going into epoch 5
+speechbrain.nnet.schedulers - Changing lr from 0.00019 to 0.00015
+speechbrain.utils.train_logger - epoch: 5, lr: 1.92e-04 - train loss: 2.60e-01 - valid loss: 1.32, valid CER: 35.32, valid WER: 76.43
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_kab/CKPT+2026-02-09+15-52-14+00
+speechbrain.utils.epoch_loop - Going into epoch 6
+speechbrain.nnet.schedulers - Changing lr from 0.00015 to 0.00012
+speechbrain.utils.train_logger - epoch: 6, lr: 1.54e-04 - train loss: 1.87e-01 - valid loss: 1.43, valid CER: 35.84, valid WER: 77.45
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_kab/CKPT+2026-02-09+15-57-39+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_kab/CKPT+2026-02-09+15-52-14+00
+speechbrain.utils.epoch_loop - Going into epoch 7
+speechbrain.nnet.schedulers - Changing lr from 0.00012 to 9.8e-05
+speechbrain.utils.train_logger - epoch: 7, lr: 1.23e-04 - train loss: 1.37e-01 - valid loss: 1.53, valid CER: 37.20, valid WER: 78.11
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_kab/CKPT+2026-02-09+16-03-14+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_kab/CKPT+2026-02-09+15-57-39+00
+speechbrain.utils.epoch_loop - Going into epoch 8
+speechbrain.nnet.schedulers - Changing lr from 9.8e-05 to 7.9e-05
+speechbrain.utils.train_logger - epoch: 8, lr: 9.83e-05 - train loss: 9.95e-02 - valid loss: 1.62, valid CER: 37.05, valid WER: 78.40
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_kab/CKPT+2026-02-09+16-08-46+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_kab/CKPT+2026-02-09+16-03-14+00
+speechbrain.utils.epoch_loop - Going into epoch 9
+speechbrain.nnet.schedulers - Changing lr from 7.9e-05 to 6.3e-05
+speechbrain.utils.train_logger - epoch: 9, lr: 7.86e-05 - train loss: 7.40e-02 - valid loss: 1.70, valid CER: 38.78, valid WER: 79.56
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_kab/CKPT+2026-02-09+16-14-16+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_kab/CKPT+2026-02-09+16-08-46+00
+speechbrain.utils.epoch_loop - Going into epoch 10
+speechbrain.nnet.schedulers - Changing lr from 6.3e-05 to 5e-05
+speechbrain.utils.train_logger - epoch: 10, lr: 6.29e-05 - train loss: 5.57e-02 - valid loss: 1.76, valid CER: 39.94, valid WER: 79.22
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_kab/CKPT+2026-02-09+16-19-53+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_kab/CKPT+2026-02-09+16-14-16+00
+root - [BitFit] loaded 133 bias tensors from results/whisper-small/BitFit/0/bitfit_adapters/kab
+common_voice_prepare - Acquiring lock on /DB/CL-MASR/.prepare.lock...
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Locale: kab
+common_voice_prepare - Computing clip durations...
+common_voice_prepare - Clip durations for train.tsv already computed
+common_voice_prepare - Clip durations for dev.tsv already computed
+common_voice_prepare - Clip durations for test.tsv already computed
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Merging TSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/kab/train_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 36003.696099773064
+common_voice_prepare - Added 10534 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/kab/dev_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3601.992000000001
+common_voice_prepare - Added 1001 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/kab/test_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3604.5119999999943
+common_voice_prepare - Added 944 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Creating data manifest CSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/train.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/dev.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/test.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Releasing lock on /DB/CL-MASR/.prepare.lock...
+speechbrain.core - Run option precision from hparams is used
+speechbrain.core - Run option max_grad_norm from hparams is used
+speechbrain.core - Run option nonfinite_patience from hparams is used
+speechbrain.core - Run option ckpt_interval_minutes from hparams is used
+speechbrain.core - Gradscaler enabled: `True`
+speechbrain.core - Using training precision: `--precision=fp16`
+speechbrain.core - Using evaluation precision: `--eval_precision=fp32`
+speechbrain.core - The model has no trainable parameters!
+speechbrain.core - ASR Model Statistics:
+* Total Number of Trainable Parameters: 0
+* Total Number of Parameters: 241.7M
+* Trainable Parameters represent 0.0000% of the total size.
+speechbrain.utils.train_logger - Epoch loaded: 10 - test loss: 1.78, test CER: 38.08, test WER: 78.97
+common_voice_prepare - Acquiring lock on /DB/CL-MASR/.prepare.lock...
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Locale: lg
+common_voice_prepare - Computing clip durations...
+common_voice_prepare - Clip durations for train.tsv already computed
+common_voice_prepare - Clip durations for dev.tsv already computed
+common_voice_prepare - Clip durations for test.tsv already computed
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Merging TSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/lg/train_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 36005.336009070386
+common_voice_prepare - Added 6074 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/lg/dev_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3601.5119999999997
+common_voice_prepare - Added 648 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/lg/test_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3601.6680000000033
+common_voice_prepare - Added 615 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Creating data manifest CSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/train.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/dev.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/test.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Releasing lock on /DB/CL-MASR/.prepare.lock...
+root - [BitFit] locale=lg freeze_encoder=True bitfit_ln=True trainable=39,965,184/241,737,984 (16.5324%)
+root - [BitFit] sample trainables:
+  decoder.embed_tokens.weight
+  decoder.layers.0.self_attn.v_proj.bias
+  decoder.layers.0.self_attn.q_proj.bias
+  decoder.layers.0.self_attn.out_proj.bias
+  decoder.layers.0.self_attn_layer_norm.bias
+  decoder.layers.0.encoder_attn.v_proj.bias
+  decoder.layers.0.encoder_attn.q_proj.bias
+  decoder.layers.0.encoder_attn.out_proj.bias
+  decoder.layers.0.encoder_attn_layer_norm.bias
+  decoder.layers.0.fc1.bias
+  decoder.layers.0.fc2.bias
+  decoder.layers.0.final_layer_norm.bias
+  decoder.layers.1.self_attn.v_proj.bias
+  decoder.layers.1.self_attn.q_proj.bias
+  decoder.layers.1.self_attn.out_proj.bias
+  decoder.layers.1.self_attn_layer_norm.bias
+  decoder.layers.1.encoder_attn.v_proj.bias
+  decoder.layers.1.encoder_attn.q_proj.bias
+  decoder.layers.1.encoder_attn.out_proj.bias
+  decoder.layers.1.encoder_attn_layer_norm.bias
+  decoder.layers.1.fc1.bias
+  decoder.layers.1.fc2.bias
+  decoder.layers.1.final_layer_norm.bias
+  decoder.layers.2.self_attn.v_proj.bias
+  decoder.layers.2.self_attn.q_proj.bias
+  decoder.layers.2.self_attn.out_proj.bias
+  decoder.layers.2.self_attn_layer_norm.bias
+  decoder.layers.2.encoder_attn.v_proj.bias
+  decoder.layers.2.encoder_attn.q_proj.bias
+  decoder.layers.2.encoder_attn.out_proj.bias
+  decoder.layers.2.encoder_attn_layer_norm.bias
+  decoder.layers.2.fc1.bias
+  decoder.layers.2.fc2.bias
+  decoder.layers.2.final_layer_norm.bias
+  decoder.layers.3.self_attn.v_proj.bias
+  decoder.layers.3.self_attn.q_proj.bias
+  decoder.layers.3.self_attn.out_proj.bias
+  decoder.layers.3.self_attn_layer_norm.bias
+  decoder.layers.3.encoder_attn.v_proj.bias
+  decoder.layers.3.encoder_attn.q_proj.bias
+  decoder.layers.3.encoder_attn.out_proj.bias
+  decoder.layers.3.encoder_attn_layer_norm.bias
+  decoder.layers.3.fc1.bias
+  decoder.layers.3.fc2.bias
+  decoder.layers.3.final_layer_norm.bias
+  decoder.layers.4.self_attn.v_proj.bias
+  decoder.layers.4.self_attn.q_proj.bias
+  decoder.layers.4.self_attn.out_proj.bias
+  decoder.layers.4.self_attn_layer_norm.bias
+  decoder.layers.4.encoder_attn.v_proj.bias
+speechbrain.core - Run option precision from hparams is used
+speechbrain.core - Run option max_grad_norm from hparams is used
+speechbrain.core - Run option nonfinite_patience from hparams is used
+speechbrain.core - Run option ckpt_interval_minutes from hparams is used
+speechbrain.core - Gradscaler enabled: `True`
+speechbrain.core - Using training precision: `--precision=fp16`
+speechbrain.core - Using evaluation precision: `--eval_precision=fp32`
+speechbrain.core - ASR Model Statistics:
+* Total Number of Trainable Parameters: 40.0M
+* Total Number of Parameters: 241.7M
+* Trainable Parameters represent 16.5324% of the total size.
+speechbrain.utils.checkpoints - Would load a checkpoint here, but none found yet.
+speechbrain.utils.epoch_loop - Going into epoch 1
+speechbrain.utils.train_logger - epoch: 1, lr: 3.00e-04 - train loss: 1.35 - valid loss: 9.81e-01, valid CER: 20.32, valid WER: 69.00
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_lg/CKPT+2026-02-09+16-26-03+00
+speechbrain.utils.epoch_loop - Going into epoch 2
+speechbrain.utils.train_logger - epoch: 2, lr: 3.00e-04 - train loss: 6.72e-01 - valid loss: 9.65e-01, valid CER: 19.39, valid WER: 66.49
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_lg/CKPT+2026-02-09+16-29-51+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_lg/CKPT+2026-02-09+16-26-03+00
+speechbrain.utils.epoch_loop - Going into epoch 3
+speechbrain.nnet.schedulers - Changing lr from 0.0003 to 0.00024
+speechbrain.utils.train_logger - epoch: 3, lr: 3.00e-04 - train loss: 4.38e-01 - valid loss: 1.01, valid CER: 19.13, valid WER: 65.10
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_lg/CKPT+2026-02-09+16-33-37+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_lg/CKPT+2026-02-09+16-29-51+00
+speechbrain.utils.epoch_loop - Going into epoch 4
+speechbrain.nnet.schedulers - Changing lr from 0.00024 to 0.00019
+speechbrain.utils.train_logger - epoch: 4, lr: 2.40e-04 - train loss: 2.82e-01 - valid loss: 1.06, valid CER: 19.02, valid WER: 64.41
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_lg/CKPT+2026-02-09+16-37-21+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_lg/CKPT+2026-02-09+16-33-37+00
+speechbrain.utils.epoch_loop - Going into epoch 5
+speechbrain.nnet.schedulers - Changing lr from 0.00019 to 0.00015
+speechbrain.utils.train_logger - epoch: 5, lr: 1.92e-04 - train loss: 1.81e-01 - valid loss: 1.13, valid CER: 19.22, valid WER: 64.35
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_lg/CKPT+2026-02-09+16-41-04+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_lg/CKPT+2026-02-09+16-37-21+00
+speechbrain.utils.epoch_loop - Going into epoch 6
+speechbrain.nnet.schedulers - Changing lr from 0.00015 to 0.00012
+speechbrain.utils.train_logger - epoch: 6, lr: 1.54e-04 - train loss: 1.16e-01 - valid loss: 1.18, valid CER: 19.48, valid WER: 63.38
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_lg/CKPT+2026-02-09+16-44-53+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_lg/CKPT+2026-02-09+16-41-04+00
+speechbrain.utils.epoch_loop - Going into epoch 7
+speechbrain.nnet.schedulers - Changing lr from 0.00012 to 9.8e-05
+speechbrain.utils.train_logger - epoch: 7, lr: 1.23e-04 - train loss: 7.46e-02 - valid loss: 1.22, valid CER: 20.29, valid WER: 64.10
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_lg/CKPT+2026-02-09+16-48-45+00
+speechbrain.utils.epoch_loop - Going into epoch 8
+speechbrain.nnet.schedulers - Changing lr from 9.8e-05 to 7.9e-05
+speechbrain.utils.train_logger - epoch: 8, lr: 9.83e-05 - train loss: 4.85e-02 - valid loss: 1.26, valid CER: 19.63, valid WER: 64.54
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_lg/CKPT+2026-02-09+16-52-29+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_lg/CKPT+2026-02-09+16-48-45+00
+speechbrain.utils.epoch_loop - Going into epoch 9
+speechbrain.nnet.schedulers - Changing lr from 7.9e-05 to 6.3e-05
+speechbrain.utils.train_logger - epoch: 9, lr: 7.86e-05 - train loss: 3.27e-02 - valid loss: 1.29, valid CER: 20.67, valid WER: 64.56
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_lg/CKPT+2026-02-09+16-56-25+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_lg/CKPT+2026-02-09+16-52-29+00
+speechbrain.utils.epoch_loop - Going into epoch 10
+speechbrain.nnet.schedulers - Changing lr from 6.3e-05 to 5e-05
+speechbrain.utils.train_logger - epoch: 10, lr: 6.29e-05 - train loss: 2.26e-02 - valid loss: 1.32, valid CER: 20.44, valid WER: 64.85
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_lg/CKPT+2026-02-09+17-00-13+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_lg/CKPT+2026-02-09+16-56-25+00
+root - [BitFit] loaded 133 bias tensors from results/whisper-small/BitFit/0/bitfit_adapters/lg
+common_voice_prepare - Acquiring lock on /DB/CL-MASR/.prepare.lock...
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Locale: lg
+common_voice_prepare - Computing clip durations...
+common_voice_prepare - Clip durations for train.tsv already computed
+common_voice_prepare - Clip durations for dev.tsv already computed
+common_voice_prepare - Clip durations for test.tsv already computed
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Merging TSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/lg/train_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 36005.336009070386
+common_voice_prepare - Added 6074 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/lg/dev_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3601.5119999999997
+common_voice_prepare - Added 648 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/lg/test_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3601.6680000000033
+common_voice_prepare - Added 615 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Creating data manifest CSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/train.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/dev.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/test.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Releasing lock on /DB/CL-MASR/.prepare.lock...
+speechbrain.core - Run option precision from hparams is used
+speechbrain.core - Run option max_grad_norm from hparams is used
+speechbrain.core - Run option nonfinite_patience from hparams is used
+speechbrain.core - Run option ckpt_interval_minutes from hparams is used
+speechbrain.core - Gradscaler enabled: `True`
+speechbrain.core - Using training precision: `--precision=fp16`
+speechbrain.core - Using evaluation precision: `--eval_precision=fp32`
+speechbrain.core - The model has no trainable parameters!
+speechbrain.core - ASR Model Statistics:
+* Total Number of Trainable Parameters: 0
+* Total Number of Parameters: 241.7M
+* Trainable Parameters represent 0.0000% of the total size.
+speechbrain.utils.train_logger - Epoch loaded: 10 - test loss: 1.52, test CER: 23.11, test WER: 69.19
+common_voice_prepare - Acquiring lock on /DB/CL-MASR/.prepare.lock...
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Locale: mhr
+common_voice_prepare - Computing clip durations...
+common_voice_prepare - Clip durations for train.tsv already computed
+common_voice_prepare - Clip durations for dev.tsv already computed
+common_voice_prepare - Clip durations for test.tsv already computed
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Merging TSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/mhr/train_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 36003.52799999971
+common_voice_prepare - Added 7783 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/mhr/dev_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3603.312000000001
+common_voice_prepare - Added 754 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/mhr/test_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3601.259999999999
+common_voice_prepare - Added 744 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Creating data manifest CSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/train.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/dev.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/test.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Releasing lock on /DB/CL-MASR/.prepare.lock...
+root - [BitFit] locale=mhr freeze_encoder=True bitfit_ln=True trainable=39,965,952/241,738,752 (16.5327%)
+root - [BitFit] sample trainables:
+  decoder.embed_tokens.weight
+  decoder.layers.0.self_attn.v_proj.bias
+  decoder.layers.0.self_attn.q_proj.bias
+  decoder.layers.0.self_attn.out_proj.bias
+  decoder.layers.0.self_attn_layer_norm.bias
+  decoder.layers.0.encoder_attn.v_proj.bias
+  decoder.layers.0.encoder_attn.q_proj.bias
+  decoder.layers.0.encoder_attn.out_proj.bias
+  decoder.layers.0.encoder_attn_layer_norm.bias
+  decoder.layers.0.fc1.bias
+  decoder.layers.0.fc2.bias
+  decoder.layers.0.final_layer_norm.bias
+  decoder.layers.1.self_attn.v_proj.bias
+  decoder.layers.1.self_attn.q_proj.bias
+  decoder.layers.1.self_attn.out_proj.bias
+  decoder.layers.1.self_attn_layer_norm.bias
+  decoder.layers.1.encoder_attn.v_proj.bias
+  decoder.layers.1.encoder_attn.q_proj.bias
+  decoder.layers.1.encoder_attn.out_proj.bias
+  decoder.layers.1.encoder_attn_layer_norm.bias
+  decoder.layers.1.fc1.bias
+  decoder.layers.1.fc2.bias
+  decoder.layers.1.final_layer_norm.bias
+  decoder.layers.2.self_attn.v_proj.bias
+  decoder.layers.2.self_attn.q_proj.bias
+  decoder.layers.2.self_attn.out_proj.bias
+  decoder.layers.2.self_attn_layer_norm.bias
+  decoder.layers.2.encoder_attn.v_proj.bias
+  decoder.layers.2.encoder_attn.q_proj.bias
+  decoder.layers.2.encoder_attn.out_proj.bias
+  decoder.layers.2.encoder_attn_layer_norm.bias
+  decoder.layers.2.fc1.bias
+  decoder.layers.2.fc2.bias
+  decoder.layers.2.final_layer_norm.bias
+  decoder.layers.3.self_attn.v_proj.bias
+  decoder.layers.3.self_attn.q_proj.bias
+  decoder.layers.3.self_attn.out_proj.bias
+  decoder.layers.3.self_attn_layer_norm.bias
+  decoder.layers.3.encoder_attn.v_proj.bias
+  decoder.layers.3.encoder_attn.q_proj.bias
+  decoder.layers.3.encoder_attn.out_proj.bias
+  decoder.layers.3.encoder_attn_layer_norm.bias
+  decoder.layers.3.fc1.bias
+  decoder.layers.3.fc2.bias
+  decoder.layers.3.final_layer_norm.bias
+  decoder.layers.4.self_attn.v_proj.bias
+  decoder.layers.4.self_attn.q_proj.bias
+  decoder.layers.4.self_attn.out_proj.bias
+  decoder.layers.4.self_attn_layer_norm.bias
+  decoder.layers.4.encoder_attn.v_proj.bias
+speechbrain.core - Run option precision from hparams is used
+speechbrain.core - Run option max_grad_norm from hparams is used
+speechbrain.core - Run option nonfinite_patience from hparams is used
+speechbrain.core - Run option ckpt_interval_minutes from hparams is used
+speechbrain.core - Gradscaler enabled: `True`
+speechbrain.core - Using training precision: `--precision=fp16`
+speechbrain.core - Using evaluation precision: `--eval_precision=fp32`
+speechbrain.core - ASR Model Statistics:
+* Total Number of Trainable Parameters: 40.0M
+* Total Number of Parameters: 241.7M
+* Trainable Parameters represent 16.5327% of the total size.
+speechbrain.utils.checkpoints - Would load a checkpoint here, but none found yet.
+speechbrain.utils.epoch_loop - Going into epoch 1
+speechbrain.utils.train_logger - epoch: 1, lr: 3.00e-04 - train loss: 8.17e-01 - valid loss: 5.58e-01, valid CER: 11.76, valid WER: 44.05
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_mhr/CKPT+2026-02-09+17-06-41+00
+speechbrain.utils.epoch_loop - Going into epoch 2
+speechbrain.utils.train_logger - epoch: 2, lr: 3.00e-04 - train loss: 4.13e-01 - valid loss: 5.40e-01, valid CER: 11.05, valid WER: 41.01
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_mhr/CKPT+2026-02-09+17-11-14+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_mhr/CKPT+2026-02-09+17-06-41+00
+speechbrain.utils.epoch_loop - Going into epoch 3
+speechbrain.nnet.schedulers - Changing lr from 0.0003 to 0.00024
+speechbrain.utils.train_logger - epoch: 3, lr: 3.00e-04 - train loss: 2.96e-01 - valid loss: 5.41e-01, valid CER: 10.68, valid WER: 39.00
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_mhr/CKPT+2026-02-09+17-15-50+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_mhr/CKPT+2026-02-09+17-11-14+00
+speechbrain.utils.epoch_loop - Going into epoch 4
+speechbrain.nnet.schedulers - Changing lr from 0.00024 to 0.00019
+speechbrain.utils.train_logger - epoch: 4, lr: 2.40e-04 - train loss: 2.10e-01 - valid loss: 5.62e-01, valid CER: 10.55, valid WER: 38.11
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_mhr/CKPT+2026-02-09+17-20-30+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_mhr/CKPT+2026-02-09+17-15-50+00
+speechbrain.utils.epoch_loop - Going into epoch 5
+speechbrain.nnet.schedulers - Changing lr from 0.00019 to 0.00015
+speechbrain.utils.train_logger - epoch: 5, lr: 1.92e-04 - train loss: 1.53e-01 - valid loss: 5.88e-01, valid CER: 11.23, valid WER: 39.33
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_mhr/CKPT+2026-02-09+17-25-02+00
+speechbrain.utils.epoch_loop - Going into epoch 6
+speechbrain.nnet.schedulers - Changing lr from 0.00015 to 0.00012
+speechbrain.utils.train_logger - epoch: 6, lr: 1.54e-04 - train loss: 1.14e-01 - valid loss: 6.15e-01, valid CER: 11.08, valid WER: 39.59
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_mhr/CKPT+2026-02-09+17-29-35+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_mhr/CKPT+2026-02-09+17-25-02+00
+speechbrain.utils.epoch_loop - Going into epoch 7
+speechbrain.nnet.schedulers - Changing lr from 0.00012 to 9.8e-05
+speechbrain.utils.train_logger - epoch: 7, lr: 1.23e-04 - train loss: 8.71e-02 - valid loss: 6.44e-01, valid CER: 11.76, valid WER: 40.31
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_mhr/CKPT+2026-02-09+17-34-16+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_mhr/CKPT+2026-02-09+17-29-35+00
+speechbrain.utils.epoch_loop - Going into epoch 8
+speechbrain.nnet.schedulers - Changing lr from 9.8e-05 to 7.9e-05
+speechbrain.utils.train_logger - epoch: 8, lr: 9.83e-05 - train loss: 6.77e-02 - valid loss: 6.74e-01, valid CER: 11.64, valid WER: 39.53
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_mhr/CKPT+2026-02-09+17-38-55+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_mhr/CKPT+2026-02-09+17-34-16+00
+speechbrain.utils.epoch_loop - Going into epoch 9
+speechbrain.nnet.schedulers - Changing lr from 7.9e-05 to 6.3e-05
+speechbrain.utils.train_logger - epoch: 9, lr: 7.86e-05 - train loss: 5.30e-02 - valid loss: 7.02e-01, valid CER: 11.76, valid WER: 39.44
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_mhr/CKPT+2026-02-09+17-43-30+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_mhr/CKPT+2026-02-09+17-38-55+00
+speechbrain.utils.epoch_loop - Going into epoch 10
+speechbrain.nnet.schedulers - Changing lr from 6.3e-05 to 5e-05
+speechbrain.utils.train_logger - epoch: 10, lr: 6.29e-05 - train loss: 4.22e-02 - valid loss: 7.24e-01, valid CER: 11.69, valid WER: 39.66
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_mhr/CKPT+2026-02-09+17-48-07+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_mhr/CKPT+2026-02-09+17-43-30+00
+root - [BitFit] loaded 133 bias tensors from results/whisper-small/BitFit/0/bitfit_adapters/mhr
+common_voice_prepare - Acquiring lock on /DB/CL-MASR/.prepare.lock...
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Locale: mhr
+common_voice_prepare - Computing clip durations...
+common_voice_prepare - Clip durations for train.tsv already computed
+common_voice_prepare - Clip durations for dev.tsv already computed
+common_voice_prepare - Clip durations for test.tsv already computed
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Merging TSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/mhr/train_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 36003.52799999971
+common_voice_prepare - Added 7783 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/mhr/dev_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3603.312000000001
+common_voice_prepare - Added 754 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/mhr/test_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3601.259999999999
+common_voice_prepare - Added 744 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Creating data manifest CSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/train.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/dev.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/test.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Releasing lock on /DB/CL-MASR/.prepare.lock...
+speechbrain.core - Run option precision from hparams is used
+speechbrain.core - Run option max_grad_norm from hparams is used
+speechbrain.core - Run option nonfinite_patience from hparams is used
+speechbrain.core - Run option ckpt_interval_minutes from hparams is used
+speechbrain.core - Gradscaler enabled: `True`
+speechbrain.core - Using training precision: `--precision=fp16`
+speechbrain.core - Using evaluation precision: `--eval_precision=fp32`
+speechbrain.core - The model has no trainable parameters!
+speechbrain.core - ASR Model Statistics:
+* Total Number of Trainable Parameters: 0
+* Total Number of Parameters: 241.7M
+* Trainable Parameters represent 0.0000% of the total size.
+speechbrain.utils.train_logger - Epoch loaded: 10 - test loss: 7.05e-01, test CER: 12.04, test WER: 40.53
+common_voice_prepare - Acquiring lock on /DB/CL-MASR/.prepare.lock...
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Locale: ckb
+common_voice_prepare - Computing clip durations...
+common_voice_prepare - Clip durations for train.tsv already computed
+common_voice_prepare - Clip durations for dev.tsv already computed
+common_voice_prepare - Clip durations for test.tsv already computed
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Merging TSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/ckb/train_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 29045.6280000001
+common_voice_prepare - Added 7035 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/ckb/dev_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3600.792000000001
+common_voice_prepare - Added 844 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/ckb/test_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3603.024000000003
+common_voice_prepare - Added 791 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Creating data manifest CSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/train.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/dev.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/test.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Releasing lock on /DB/CL-MASR/.prepare.lock...
+root - [BitFit] locale=ckb freeze_encoder=True bitfit_ln=True trainable=39,966,720/241,739,520 (16.5330%)
+root - [BitFit] sample trainables:
+  decoder.embed_tokens.weight
+  decoder.layers.0.self_attn.v_proj.bias
+  decoder.layers.0.self_attn.q_proj.bias
+  decoder.layers.0.self_attn.out_proj.bias
+  decoder.layers.0.self_attn_layer_norm.bias
+  decoder.layers.0.encoder_attn.v_proj.bias
+  decoder.layers.0.encoder_attn.q_proj.bias
+  decoder.layers.0.encoder_attn.out_proj.bias
+  decoder.layers.0.encoder_attn_layer_norm.bias
+  decoder.layers.0.fc1.bias
+  decoder.layers.0.fc2.bias
+  decoder.layers.0.final_layer_norm.bias
+  decoder.layers.1.self_attn.v_proj.bias
+  decoder.layers.1.self_attn.q_proj.bias
+  decoder.layers.1.self_attn.out_proj.bias
+  decoder.layers.1.self_attn_layer_norm.bias
+  decoder.layers.1.encoder_attn.v_proj.bias
+  decoder.layers.1.encoder_attn.q_proj.bias
+  decoder.layers.1.encoder_attn.out_proj.bias
+  decoder.layers.1.encoder_attn_layer_norm.bias
+  decoder.layers.1.fc1.bias
+  decoder.layers.1.fc2.bias
+  decoder.layers.1.final_layer_norm.bias
+  decoder.layers.2.self_attn.v_proj.bias
+  decoder.layers.2.self_attn.q_proj.bias
+  decoder.layers.2.self_attn.out_proj.bias
+  decoder.layers.2.self_attn_layer_norm.bias
+  decoder.layers.2.encoder_attn.v_proj.bias
+  decoder.layers.2.encoder_attn.q_proj.bias
+  decoder.layers.2.encoder_attn.out_proj.bias
+  decoder.layers.2.encoder_attn_layer_norm.bias
+  decoder.layers.2.fc1.bias
+  decoder.layers.2.fc2.bias
+  decoder.layers.2.final_layer_norm.bias
+  decoder.layers.3.self_attn.v_proj.bias
+  decoder.layers.3.self_attn.q_proj.bias
+  decoder.layers.3.self_attn.out_proj.bias
+  decoder.layers.3.self_attn_layer_norm.bias
+  decoder.layers.3.encoder_attn.v_proj.bias
+  decoder.layers.3.encoder_attn.q_proj.bias
+  decoder.layers.3.encoder_attn.out_proj.bias
+  decoder.layers.3.encoder_attn_layer_norm.bias
+  decoder.layers.3.fc1.bias
+  decoder.layers.3.fc2.bias
+  decoder.layers.3.final_layer_norm.bias
+  decoder.layers.4.self_attn.v_proj.bias
+  decoder.layers.4.self_attn.q_proj.bias
+  decoder.layers.4.self_attn.out_proj.bias
+  decoder.layers.4.self_attn_layer_norm.bias
+  decoder.layers.4.encoder_attn.v_proj.bias
+speechbrain.core - Run option precision from hparams is used
+speechbrain.core - Run option max_grad_norm from hparams is used
+speechbrain.core - Run option nonfinite_patience from hparams is used
+speechbrain.core - Run option ckpt_interval_minutes from hparams is used
+speechbrain.core - Gradscaler enabled: `True`
+speechbrain.core - Using training precision: `--precision=fp16`
+speechbrain.core - Using evaluation precision: `--eval_precision=fp32`
+speechbrain.core - ASR Model Statistics:
+* Total Number of Trainable Parameters: 40.0M
+* Total Number of Parameters: 241.7M
+* Trainable Parameters represent 16.5330% of the total size.
+speechbrain.utils.checkpoints - Would load a checkpoint here, but none found yet.
+speechbrain.utils.epoch_loop - Going into epoch 1
+speechbrain.utils.train_logger - epoch: 1, lr: 3.00e-04 - train loss: 6.48e-01 - valid loss: 4.63e-01, valid CER: 18.31, valid WER: 68.56
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ckb/CKPT+2026-02-09+17-56-03+00
+speechbrain.utils.epoch_loop - Going into epoch 2
+speechbrain.utils.train_logger - epoch: 2, lr: 3.00e-04 - train loss: 4.43e-01 - valid loss: 4.06e-01, valid CER: 16.70, valid WER: 62.72
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ckb/CKPT+2026-02-09+18-01-33+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_ckb/CKPT+2026-02-09+17-56-03+00
+speechbrain.utils.epoch_loop - Going into epoch 3
+speechbrain.utils.train_logger - epoch: 3, lr: 3.00e-04 - train loss: 3.79e-01 - valid loss: 3.93e-01, valid CER: 16.37, valid WER: 60.43
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ckb/CKPT+2026-02-09+18-07-04+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_ckb/CKPT+2026-02-09+18-01-33+00
+speechbrain.utils.epoch_loop - Going into epoch 4
+speechbrain.utils.train_logger - epoch: 4, lr: 3.00e-04 - train loss: 3.41e-01 - valid loss: 3.88e-01, valid CER: 16.12, valid WER: 59.42
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ckb/CKPT+2026-02-09+18-12-34+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_ckb/CKPT+2026-02-09+18-07-04+00
+speechbrain.utils.epoch_loop - Going into epoch 5
+speechbrain.nnet.schedulers - Changing lr from 0.0003 to 0.00024
+speechbrain.utils.train_logger - epoch: 5, lr: 3.00e-04 - train loss: 3.15e-01 - valid loss: 3.88e-01, valid CER: 15.94, valid WER: 58.52
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ckb/CKPT+2026-02-09+18-18-07+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_ckb/CKPT+2026-02-09+18-12-34+00
+speechbrain.utils.epoch_loop - Going into epoch 6
+speechbrain.utils.train_logger - epoch: 6, lr: 2.40e-04 - train loss: 2.82e-01 - valid loss: 3.83e-01, valid CER: 15.96, valid WER: 58.43
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ckb/CKPT+2026-02-09+18-23-38+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_ckb/CKPT+2026-02-09+18-18-07+00
+speechbrain.utils.epoch_loop - Going into epoch 7
+speechbrain.nnet.schedulers - Changing lr from 0.00024 to 0.00019
+speechbrain.utils.train_logger - epoch: 7, lr: 2.40e-04 - train loss: 2.66e-01 - valid loss: 3.86e-01, valid CER: 16.01, valid WER: 58.37
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ckb/CKPT+2026-02-09+18-29-10+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_ckb/CKPT+2026-02-09+18-23-38+00
+speechbrain.utils.epoch_loop - Going into epoch 8
+speechbrain.nnet.schedulers - Changing lr from 0.00019 to 0.00015
+speechbrain.utils.train_logger - epoch: 8, lr: 1.92e-04 - train loss: 2.42e-01 - valid loss: 3.87e-01, valid CER: 15.86, valid WER: 58.39
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ckb/CKPT+2026-02-09+18-34-36+00
+speechbrain.utils.epoch_loop - Going into epoch 9
+speechbrain.nnet.schedulers - Changing lr from 0.00015 to 0.00012
+speechbrain.utils.train_logger - epoch: 9, lr: 1.54e-04 - train loss: 2.23e-01 - valid loss: 3.88e-01, valid CER: 15.99, valid WER: 58.25
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ckb/CKPT+2026-02-09+18-40-14+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_ckb/CKPT+2026-02-09+18-29-10+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_ckb/CKPT+2026-02-09+18-34-36+00
+speechbrain.utils.epoch_loop - Going into epoch 10
+speechbrain.nnet.schedulers - Changing lr from 0.00012 to 9.8e-05
+speechbrain.utils.train_logger - epoch: 10, lr: 1.23e-04 - train loss: 2.07e-01 - valid loss: 3.91e-01, valid CER: 16.00, valid WER: 58.25
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ckb/CKPT+2026-02-09+18-45-44+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_ckb/CKPT+2026-02-09+18-40-14+00
+root - [BitFit] loaded 133 bias tensors from results/whisper-small/BitFit/0/bitfit_adapters/ckb
+common_voice_prepare - Acquiring lock on /DB/CL-MASR/.prepare.lock...
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Locale: ckb
+common_voice_prepare - Computing clip durations...
+common_voice_prepare - Clip durations for train.tsv already computed
+common_voice_prepare - Clip durations for dev.tsv already computed
+common_voice_prepare - Clip durations for test.tsv already computed
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Merging TSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/ckb/train_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 29045.6280000001
+common_voice_prepare - Added 7035 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/ckb/dev_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3600.792000000001
+common_voice_prepare - Added 844 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/ckb/test_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3603.024000000003
+common_voice_prepare - Added 791 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Creating data manifest CSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/train.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/dev.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/test.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Releasing lock on /DB/CL-MASR/.prepare.lock...
+speechbrain.core - Run option precision from hparams is used
+speechbrain.core - Run option max_grad_norm from hparams is used
+speechbrain.core - Run option nonfinite_patience from hparams is used
+speechbrain.core - Run option ckpt_interval_minutes from hparams is used
+speechbrain.core - Gradscaler enabled: `True`
+speechbrain.core - Using training precision: `--precision=fp16`
+speechbrain.core - Using evaluation precision: `--eval_precision=fp32`
+speechbrain.core - The model has no trainable parameters!
+speechbrain.core - ASR Model Statistics:
+* Total Number of Trainable Parameters: 0
+* Total Number of Parameters: 241.7M
+* Trainable Parameters represent 0.0000% of the total size.
+speechbrain.utils.train_logger - Epoch loaded: 10 - test loss: 4.10e-01, test CER: 16.84, test WER: 59.69
+common_voice_prepare - Acquiring lock on /DB/CL-MASR/.prepare.lock...
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Locale: ab
+common_voice_prepare - Computing clip durations...
+common_voice_prepare - Clip durations for train.tsv already computed
+common_voice_prepare - Clip durations for dev.tsv already computed
+common_voice_prepare - Clip durations for test.tsv already computed
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Merging TSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/ab/train_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 36003.371999999945
+common_voice_prepare - Added 6561 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/ab/dev_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3600.5399999999986
+common_voice_prepare - Added 704 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/ab/test_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3605.7719999999963
+common_voice_prepare - Added 701 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Creating data manifest CSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/train.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/dev.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/test.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Releasing lock on /DB/CL-MASR/.prepare.lock...
+root - [BitFit] locale=ab freeze_encoder=True bitfit_ln=True trainable=39,967,488/241,740,288 (16.5332%)
+root - [BitFit] sample trainables:
+  decoder.embed_tokens.weight
+  decoder.layers.0.self_attn.v_proj.bias
+  decoder.layers.0.self_attn.q_proj.bias
+  decoder.layers.0.self_attn.out_proj.bias
+  decoder.layers.0.self_attn_layer_norm.bias
+  decoder.layers.0.encoder_attn.v_proj.bias
+  decoder.layers.0.encoder_attn.q_proj.bias
+  decoder.layers.0.encoder_attn.out_proj.bias
+  decoder.layers.0.encoder_attn_layer_norm.bias
+  decoder.layers.0.fc1.bias
+  decoder.layers.0.fc2.bias
+  decoder.layers.0.final_layer_norm.bias
+  decoder.layers.1.self_attn.v_proj.bias
+  decoder.layers.1.self_attn.q_proj.bias
+  decoder.layers.1.self_attn.out_proj.bias
+  decoder.layers.1.self_attn_layer_norm.bias
+  decoder.layers.1.encoder_attn.v_proj.bias
+  decoder.layers.1.encoder_attn.q_proj.bias
+  decoder.layers.1.encoder_attn.out_proj.bias
+  decoder.layers.1.encoder_attn_layer_norm.bias
+  decoder.layers.1.fc1.bias
+  decoder.layers.1.fc2.bias
+  decoder.layers.1.final_layer_norm.bias
+  decoder.layers.2.self_attn.v_proj.bias
+  decoder.layers.2.self_attn.q_proj.bias
+  decoder.layers.2.self_attn.out_proj.bias
+  decoder.layers.2.self_attn_layer_norm.bias
+  decoder.layers.2.encoder_attn.v_proj.bias
+  decoder.layers.2.encoder_attn.q_proj.bias
+  decoder.layers.2.encoder_attn.out_proj.bias
+  decoder.layers.2.encoder_attn_layer_norm.bias
+  decoder.layers.2.fc1.bias
+  decoder.layers.2.fc2.bias
+  decoder.layers.2.final_layer_norm.bias
+  decoder.layers.3.self_attn.v_proj.bias
+  decoder.layers.3.self_attn.q_proj.bias
+  decoder.layers.3.self_attn.out_proj.bias
+  decoder.layers.3.self_attn_layer_norm.bias
+  decoder.layers.3.encoder_attn.v_proj.bias
+  decoder.layers.3.encoder_attn.q_proj.bias
+  decoder.layers.3.encoder_attn.out_proj.bias
+  decoder.layers.3.encoder_attn_layer_norm.bias
+  decoder.layers.3.fc1.bias
+  decoder.layers.3.fc2.bias
+  decoder.layers.3.final_layer_norm.bias
+  decoder.layers.4.self_attn.v_proj.bias
+  decoder.layers.4.self_attn.q_proj.bias
+  decoder.layers.4.self_attn.out_proj.bias
+  decoder.layers.4.self_attn_layer_norm.bias
+  decoder.layers.4.encoder_attn.v_proj.bias
+speechbrain.core - Run option precision from hparams is used
+speechbrain.core - Run option max_grad_norm from hparams is used
+speechbrain.core - Run option nonfinite_patience from hparams is used
+speechbrain.core - Run option ckpt_interval_minutes from hparams is used
+speechbrain.core - Gradscaler enabled: `True`
+speechbrain.core - Using training precision: `--precision=fp16`
+speechbrain.core - Using evaluation precision: `--eval_precision=fp32`
+speechbrain.core - ASR Model Statistics:
+* Total Number of Trainable Parameters: 40.0M
+* Total Number of Parameters: 241.7M
+* Trainable Parameters represent 16.5332% of the total size.
+speechbrain.utils.checkpoints - Would load a checkpoint here, but none found yet.
+speechbrain.utils.epoch_loop - Going into epoch 1
+speechbrain.utils.train_logger - epoch: 1, lr: 3.00e-04 - train loss: 8.39e-01 - valid loss: 5.99e-01, valid CER: 22.93, valid WER: 79.96
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ab/CKPT+2026-02-09+18-54-10+00
+speechbrain.utils.epoch_loop - Going into epoch 2
+speechbrain.utils.train_logger - epoch: 2, lr: 3.00e-04 - train loss: 5.04e-01 - valid loss: 5.49e-01, valid CER: 21.22, valid WER: 75.88
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ab/CKPT+2026-02-09+18-59-12+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_ab/CKPT+2026-02-09+18-54-10+00
+speechbrain.utils.epoch_loop - Going into epoch 3
+speechbrain.utils.train_logger - epoch: 3, lr: 3.00e-04 - train loss: 4.10e-01 - valid loss: 5.37e-01, valid CER: 21.35, valid WER: 75.00
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ab/CKPT+2026-02-09+19-04-15+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_ab/CKPT+2026-02-09+18-59-12+00
+speechbrain.utils.epoch_loop - Going into epoch 4
+speechbrain.nnet.schedulers - Changing lr from 0.0003 to 0.00024
+speechbrain.utils.train_logger - epoch: 4, lr: 3.00e-04 - train loss: 3.55e-01 - valid loss: 5.41e-01, valid CER: 21.30, valid WER: 73.25
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ab/CKPT+2026-02-09+19-09-17+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_ab/CKPT+2026-02-09+19-04-15+00
+speechbrain.utils.epoch_loop - Going into epoch 5
+speechbrain.nnet.schedulers - Changing lr from 0.00024 to 0.00019
+speechbrain.utils.train_logger - epoch: 5, lr: 2.40e-04 - train loss: 2.95e-01 - valid loss: 5.44e-01, valid CER: 20.94, valid WER: 71.77
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ab/CKPT+2026-02-09+19-14-12+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_ab/CKPT+2026-02-09+19-09-17+00
+speechbrain.utils.epoch_loop - Going into epoch 6
+speechbrain.nnet.schedulers - Changing lr from 0.00019 to 0.00015
+speechbrain.utils.train_logger - epoch: 6, lr: 1.92e-04 - train loss: 2.51e-01 - valid loss: 5.53e-01, valid CER: 21.08, valid WER: 71.55
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ab/CKPT+2026-02-09+19-19-14+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_ab/CKPT+2026-02-09+19-14-12+00
+speechbrain.utils.epoch_loop - Going into epoch 7
+speechbrain.nnet.schedulers - Changing lr from 0.00015 to 0.00012
+speechbrain.utils.train_logger - epoch: 7, lr: 1.54e-04 - train loss: 2.17e-01 - valid loss: 5.68e-01, valid CER: 21.29, valid WER: 71.33
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ab/CKPT+2026-02-09+19-24-03+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_ab/CKPT+2026-02-09+19-19-14+00
+speechbrain.utils.epoch_loop - Going into epoch 8
+speechbrain.nnet.schedulers - Changing lr from 0.00012 to 9.8e-05
+speechbrain.utils.train_logger - epoch: 8, lr: 1.23e-04 - train loss: 1.91e-01 - valid loss: 5.85e-01, valid CER: 21.09, valid WER: 71.66
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ab/CKPT+2026-02-09+19-28-49+00
+speechbrain.utils.epoch_loop - Going into epoch 9
+speechbrain.nnet.schedulers - Changing lr from 9.8e-05 to 7.9e-05
+speechbrain.utils.train_logger - epoch: 9, lr: 9.83e-05 - train loss: 1.69e-01 - valid loss: 6.02e-01, valid CER: 21.57, valid WER: 71.74
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ab/CKPT+2026-02-09+19-33-50+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_ab/CKPT+2026-02-09+19-28-49+00
+speechbrain.utils.epoch_loop - Going into epoch 10
+speechbrain.nnet.schedulers - Changing lr from 7.9e-05 to 6.3e-05
+speechbrain.utils.train_logger - epoch: 10, lr: 7.86e-05 - train loss: 1.52e-01 - valid loss: 6.20e-01, valid CER: 21.58, valid WER: 71.88
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ab/CKPT+2026-02-09+19-38-59+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_ab/CKPT+2026-02-09+19-33-50+00
+root - [BitFit] loaded 133 bias tensors from results/whisper-small/BitFit/0/bitfit_adapters/ab
+common_voice_prepare - Acquiring lock on /DB/CL-MASR/.prepare.lock...
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Locale: ab
+common_voice_prepare - Computing clip durations...
+common_voice_prepare - Clip durations for train.tsv already computed
+common_voice_prepare - Clip durations for dev.tsv already computed
+common_voice_prepare - Clip durations for test.tsv already computed
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Merging TSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/ab/train_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 36003.371999999945
+common_voice_prepare - Added 6561 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/ab/dev_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3600.5399999999986
+common_voice_prepare - Added 704 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/ab/test_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3605.7719999999963
+common_voice_prepare - Added 701 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Creating data manifest CSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/train.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/dev.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/test.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Releasing lock on /DB/CL-MASR/.prepare.lock...
+speechbrain.core - Run option precision from hparams is used
+speechbrain.core - Run option max_grad_norm from hparams is used
+speechbrain.core - Run option nonfinite_patience from hparams is used
+speechbrain.core - Run option ckpt_interval_minutes from hparams is used
+speechbrain.core - Gradscaler enabled: `True`
+speechbrain.core - Using training precision: `--precision=fp16`
+speechbrain.core - Using evaluation precision: `--eval_precision=fp32`
+speechbrain.core - The model has no trainable parameters!
+speechbrain.core - ASR Model Statistics:
+* Total Number of Trainable Parameters: 0
+* Total Number of Parameters: 241.7M
+* Trainable Parameters represent 0.0000% of the total size.
+speechbrain.utils.train_logger - Epoch loaded: 10 - test loss: 6.31e-01, test CER: 22.31, test WER: 70.97
+common_voice_prepare - Acquiring lock on /DB/CL-MASR/.prepare.lock...
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Locale: kmr
+common_voice_prepare - Computing clip durations...
+common_voice_prepare - Clip durations for train.tsv already computed
+common_voice_prepare - Clip durations for dev.tsv already computed
+common_voice_prepare - Clip durations for test.tsv already computed
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Merging TSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/kmr/train_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 17736.228000000043
+common_voice_prepare - Added 4451 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/kmr/dev_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3600.2880000000027
+common_voice_prepare - Added 826 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/kmr/test_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3601.115999999996
+common_voice_prepare - Added 781 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Creating data manifest CSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/train.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/dev.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/test.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Releasing lock on /DB/CL-MASR/.prepare.lock...
+root - [BitFit] locale=kmr freeze_encoder=True bitfit_ln=True trainable=39,968,256/241,741,056 (16.5335%)
+root - [BitFit] sample trainables:
+  decoder.embed_tokens.weight
+  decoder.layers.0.self_attn.v_proj.bias
+  decoder.layers.0.self_attn.q_proj.bias
+  decoder.layers.0.self_attn.out_proj.bias
+  decoder.layers.0.self_attn_layer_norm.bias
+  decoder.layers.0.encoder_attn.v_proj.bias
+  decoder.layers.0.encoder_attn.q_proj.bias
+  decoder.layers.0.encoder_attn.out_proj.bias
+  decoder.layers.0.encoder_attn_layer_norm.bias
+  decoder.layers.0.fc1.bias
+  decoder.layers.0.fc2.bias
+  decoder.layers.0.final_layer_norm.bias
+  decoder.layers.1.self_attn.v_proj.bias
+  decoder.layers.1.self_attn.q_proj.bias
+  decoder.layers.1.self_attn.out_proj.bias
+  decoder.layers.1.self_attn_layer_norm.bias
+  decoder.layers.1.encoder_attn.v_proj.bias
+  decoder.layers.1.encoder_attn.q_proj.bias
+  decoder.layers.1.encoder_attn.out_proj.bias
+  decoder.layers.1.encoder_attn_layer_norm.bias
+  decoder.layers.1.fc1.bias
+  decoder.layers.1.fc2.bias
+  decoder.layers.1.final_layer_norm.bias
+  decoder.layers.2.self_attn.v_proj.bias
+  decoder.layers.2.self_attn.q_proj.bias
+  decoder.layers.2.self_attn.out_proj.bias
+  decoder.layers.2.self_attn_layer_norm.bias
+  decoder.layers.2.encoder_attn.v_proj.bias
+  decoder.layers.2.encoder_attn.q_proj.bias
+  decoder.layers.2.encoder_attn.out_proj.bias
+  decoder.layers.2.encoder_attn_layer_norm.bias
+  decoder.layers.2.fc1.bias
+  decoder.layers.2.fc2.bias
+  decoder.layers.2.final_layer_norm.bias
+  decoder.layers.3.self_attn.v_proj.bias
+  decoder.layers.3.self_attn.q_proj.bias
+  decoder.layers.3.self_attn.out_proj.bias
+  decoder.layers.3.self_attn_layer_norm.bias
+  decoder.layers.3.encoder_attn.v_proj.bias
+  decoder.layers.3.encoder_attn.q_proj.bias
+  decoder.layers.3.encoder_attn.out_proj.bias
+  decoder.layers.3.encoder_attn_layer_norm.bias
+  decoder.layers.3.fc1.bias
+  decoder.layers.3.fc2.bias
+  decoder.layers.3.final_layer_norm.bias
+  decoder.layers.4.self_attn.v_proj.bias
+  decoder.layers.4.self_attn.q_proj.bias
+  decoder.layers.4.self_attn.out_proj.bias
+  decoder.layers.4.self_attn_layer_norm.bias
+  decoder.layers.4.encoder_attn.v_proj.bias
+speechbrain.core - Run option precision from hparams is used
+speechbrain.core - Run option max_grad_norm from hparams is used
+speechbrain.core - Run option nonfinite_patience from hparams is used
+speechbrain.core - Run option ckpt_interval_minutes from hparams is used
+speechbrain.core - Gradscaler enabled: `True`
+speechbrain.core - Using training precision: `--precision=fp16`
+speechbrain.core - Using evaluation precision: `--eval_precision=fp32`
+speechbrain.core - ASR Model Statistics:
+* Total Number of Trainable Parameters: 40.0M
+* Total Number of Parameters: 241.7M
+* Trainable Parameters represent 16.5335% of the total size.
+speechbrain.utils.checkpoints - Would load a checkpoint here, but none found yet.
+speechbrain.utils.epoch_loop - Going into epoch 1
+speechbrain.utils.train_logger - epoch: 1, lr: 3.00e-04 - train loss: 1.30 - valid loss: 9.41e-01, valid CER: 16.04, valid WER: 53.92
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_kmr/CKPT+2026-02-09+19-45-04+00
+speechbrain.utils.epoch_loop - Going into epoch 2
+speechbrain.utils.train_logger - epoch: 2, lr: 3.00e-04 - train loss: 5.29e-01 - valid loss: 9.28e-01, valid CER: 15.16, valid WER: 50.40
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_kmr/CKPT+2026-02-09+19-48-12+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_kmr/CKPT+2026-02-09+19-45-04+00
+speechbrain.utils.epoch_loop - Going into epoch 3
+speechbrain.nnet.schedulers - Changing lr from 0.0003 to 0.00024
+speechbrain.utils.train_logger - epoch: 3, lr: 3.00e-04 - train loss: 2.98e-01 - valid loss: 9.72e-01, valid CER: 15.67, valid WER: 49.16
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_kmr/CKPT+2026-02-09+19-51-22+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_kmr/CKPT+2026-02-09+19-48-12+00
+speechbrain.utils.epoch_loop - Going into epoch 4
+speechbrain.nnet.schedulers - Changing lr from 0.00024 to 0.00019
+speechbrain.utils.train_logger - epoch: 4, lr: 2.40e-04 - train loss: 1.72e-01 - valid loss: 1.01, valid CER: 16.01, valid WER: 50.51
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_kmr/CKPT+2026-02-09+19-54-32+00
+speechbrain.utils.epoch_loop - Going into epoch 5
+speechbrain.nnet.schedulers - Changing lr from 0.00019 to 0.00015
+speechbrain.utils.train_logger - epoch: 5, lr: 1.92e-04 - train loss: 1.01e-01 - valid loss: 1.02, valid CER: 15.84, valid WER: 47.65
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_kmr/CKPT+2026-02-09+19-57-43+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_kmr/CKPT+2026-02-09+19-51-22+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_kmr/CKPT+2026-02-09+19-54-32+00
+speechbrain.utils.epoch_loop - Going into epoch 6
+speechbrain.nnet.schedulers - Changing lr from 0.00015 to 0.00012
+speechbrain.utils.train_logger - epoch: 6, lr: 1.54e-04 - train loss: 5.79e-02 - valid loss: 1.04, valid CER: 14.96, valid WER: 47.22
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_kmr/CKPT+2026-02-09+20-00-55+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_kmr/CKPT+2026-02-09+19-57-43+00
+speechbrain.utils.epoch_loop - Going into epoch 7
+speechbrain.nnet.schedulers - Changing lr from 0.00012 to 9.8e-05
+speechbrain.utils.train_logger - epoch: 7, lr: 1.23e-04 - train loss: 3.35e-02 - valid loss: 1.07, valid CER: 15.67, valid WER: 47.59
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_kmr/CKPT+2026-02-09+20-04-05+00
+speechbrain.utils.epoch_loop - Going into epoch 8
+speechbrain.nnet.schedulers - Changing lr from 9.8e-05 to 7.9e-05
+speechbrain.utils.train_logger - epoch: 8, lr: 9.83e-05 - train loss: 2.09e-02 - valid loss: 1.09, valid CER: 15.26, valid WER: 46.85
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_kmr/CKPT+2026-02-09+20-07-16+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_kmr/CKPT+2026-02-09+20-00-55+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_kmr/CKPT+2026-02-09+20-04-05+00
+speechbrain.utils.epoch_loop - Going into epoch 9
+speechbrain.nnet.schedulers - Changing lr from 7.9e-05 to 6.3e-05
+speechbrain.utils.train_logger - epoch: 9, lr: 7.86e-05 - train loss: 1.30e-02 - valid loss: 1.11, valid CER: 14.89, valid WER: 46.68
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_kmr/CKPT+2026-02-09+20-10-25+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_kmr/CKPT+2026-02-09+20-07-16+00
+speechbrain.utils.epoch_loop - Going into epoch 10
+speechbrain.nnet.schedulers - Changing lr from 6.3e-05 to 5e-05
+speechbrain.utils.train_logger - epoch: 10, lr: 6.29e-05 - train loss: 7.49e-03 - valid loss: 1.12, valid CER: 14.73, valid WER: 46.68
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_kmr/CKPT+2026-02-09+20-13-26+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_kmr/CKPT+2026-02-09+20-10-25+00
+root - [BitFit] loaded 133 bias tensors from results/whisper-small/BitFit/0/bitfit_adapters/kmr
+common_voice_prepare - Acquiring lock on /DB/CL-MASR/.prepare.lock...
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Locale: kmr
+common_voice_prepare - Computing clip durations...
+common_voice_prepare - Clip durations for train.tsv already computed
+common_voice_prepare - Clip durations for dev.tsv already computed
+common_voice_prepare - Clip durations for test.tsv already computed
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Merging TSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/kmr/train_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 17736.228000000043
+common_voice_prepare - Added 4451 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/kmr/dev_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3600.2880000000027
+common_voice_prepare - Added 826 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/kmr/test_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3601.115999999996
+common_voice_prepare - Added 781 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Creating data manifest CSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/train.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/dev.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/test.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Releasing lock on /DB/CL-MASR/.prepare.lock...
+speechbrain.core - Run option precision from hparams is used
+speechbrain.core - Run option max_grad_norm from hparams is used
+speechbrain.core - Run option nonfinite_patience from hparams is used
+speechbrain.core - Run option ckpt_interval_minutes from hparams is used
+speechbrain.core - Gradscaler enabled: `True`
+speechbrain.core - Using training precision: `--precision=fp16`
+speechbrain.core - Using evaluation precision: `--eval_precision=fp32`
+speechbrain.core - The model has no trainable parameters!
+speechbrain.core - ASR Model Statistics:
+* Total Number of Trainable Parameters: 0
+* Total Number of Parameters: 241.7M
+* Trainable Parameters represent 0.0000% of the total size.
+speechbrain.utils.train_logger - Epoch loaded: 10 - test loss: 1.21, test CER: 16.54, test WER: 48.89
+common_voice_prepare - Acquiring lock on /DB/CL-MASR/.prepare.lock...
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Locale: fy-NL
+common_voice_prepare - Computing clip durations...
+common_voice_prepare - Clip durations for train.tsv already computed
+common_voice_prepare - Clip durations for dev.tsv already computed
+common_voice_prepare - Clip durations for test.tsv already computed
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Merging TSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/fy-NL/train_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 19823.98630839005
+common_voice_prepare - Added 3917 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/fy-NL/dev_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3603.85004988662
+common_voice_prepare - Added 708 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/fy-NL/test_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3605.314988662132
+common_voice_prepare - Added 689 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Creating data manifest CSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/train.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/dev.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/test.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Releasing lock on /DB/CL-MASR/.prepare.lock...
+root - [BitFit] locale=fy-NL freeze_encoder=True bitfit_ln=True trainable=39,969,024/241,741,824 (16.5338%)
+root - [BitFit] sample trainables:
+  decoder.embed_tokens.weight
+  decoder.layers.0.self_attn.v_proj.bias
+  decoder.layers.0.self_attn.q_proj.bias
+  decoder.layers.0.self_attn.out_proj.bias
+  decoder.layers.0.self_attn_layer_norm.bias
+  decoder.layers.0.encoder_attn.v_proj.bias
+  decoder.layers.0.encoder_attn.q_proj.bias
+  decoder.layers.0.encoder_attn.out_proj.bias
+  decoder.layers.0.encoder_attn_layer_norm.bias
+  decoder.layers.0.fc1.bias
+  decoder.layers.0.fc2.bias
+  decoder.layers.0.final_layer_norm.bias
+  decoder.layers.1.self_attn.v_proj.bias
+  decoder.layers.1.self_attn.q_proj.bias
+  decoder.layers.1.self_attn.out_proj.bias
+  decoder.layers.1.self_attn_layer_norm.bias
+  decoder.layers.1.encoder_attn.v_proj.bias
+  decoder.layers.1.encoder_attn.q_proj.bias
+  decoder.layers.1.encoder_attn.out_proj.bias
+  decoder.layers.1.encoder_attn_layer_norm.bias
+  decoder.layers.1.fc1.bias
+  decoder.layers.1.fc2.bias
+  decoder.layers.1.final_layer_norm.bias
+  decoder.layers.2.self_attn.v_proj.bias
+  decoder.layers.2.self_attn.q_proj.bias
+  decoder.layers.2.self_attn.out_proj.bias
+  decoder.layers.2.self_attn_layer_norm.bias
+  decoder.layers.2.encoder_attn.v_proj.bias
+  decoder.layers.2.encoder_attn.q_proj.bias
+  decoder.layers.2.encoder_attn.out_proj.bias
+  decoder.layers.2.encoder_attn_layer_norm.bias
+  decoder.layers.2.fc1.bias
+  decoder.layers.2.fc2.bias
+  decoder.layers.2.final_layer_norm.bias
+  decoder.layers.3.self_attn.v_proj.bias
+  decoder.layers.3.self_attn.q_proj.bias
+  decoder.layers.3.self_attn.out_proj.bias
+  decoder.layers.3.self_attn_layer_norm.bias
+  decoder.layers.3.encoder_attn.v_proj.bias
+  decoder.layers.3.encoder_attn.q_proj.bias
+  decoder.layers.3.encoder_attn.out_proj.bias
+  decoder.layers.3.encoder_attn_layer_norm.bias
+  decoder.layers.3.fc1.bias
+  decoder.layers.3.fc2.bias
+  decoder.layers.3.final_layer_norm.bias
+  decoder.layers.4.self_attn.v_proj.bias
+  decoder.layers.4.self_attn.q_proj.bias
+  decoder.layers.4.self_attn.out_proj.bias
+  decoder.layers.4.self_attn_layer_norm.bias
+  decoder.layers.4.encoder_attn.v_proj.bias
+speechbrain.core - Run option precision from hparams is used
+speechbrain.core - Run option max_grad_norm from hparams is used
+speechbrain.core - Run option nonfinite_patience from hparams is used
+speechbrain.core - Run option ckpt_interval_minutes from hparams is used
+speechbrain.core - Gradscaler enabled: `True`
+speechbrain.core - Using training precision: `--precision=fp16`
+speechbrain.core - Using evaluation precision: `--eval_precision=fp32`
+speechbrain.core - ASR Model Statistics:
+* Total Number of Trainable Parameters: 40.0M
+* Total Number of Parameters: 241.7M
+* Trainable Parameters represent 16.5338% of the total size.
+speechbrain.utils.checkpoints - Would load a checkpoint here, but none found yet.
+speechbrain.utils.epoch_loop - Going into epoch 1
+speechbrain.utils.train_logger - epoch: 1, lr: 3.00e-04 - train loss: 1.32 - valid loss: 9.11e-01, valid CER: 17.59, valid WER: 42.08
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_fy-NL/CKPT+2026-02-09+20-18-21+00
+speechbrain.utils.epoch_loop - Going into epoch 2
+speechbrain.nnet.schedulers - Changing lr from 0.0003 to 0.00024
+speechbrain.utils.train_logger - epoch: 2, lr: 3.00e-04 - train loss: 4.45e-01 - valid loss: 9.55e-01, valid CER: 16.22, valid WER: 39.93
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_fy-NL/CKPT+2026-02-09+20-21-22+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_fy-NL/CKPT+2026-02-09+20-18-21+00
+speechbrain.utils.epoch_loop - Going into epoch 3
+speechbrain.utils.train_logger - epoch: 3, lr: 2.40e-04 - train loss: 1.78e-01 - valid loss: 9.34e-01, valid CER: 16.36, valid WER: 37.71
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_fy-NL/CKPT+2026-02-09+20-24-24+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_fy-NL/CKPT+2026-02-09+20-21-22+00
+speechbrain.utils.epoch_loop - Going into epoch 4
+speechbrain.nnet.schedulers - Changing lr from 0.00024 to 0.00019
+speechbrain.utils.train_logger - epoch: 4, lr: 2.40e-04 - train loss: 8.92e-02 - valid loss: 9.61e-01, valid CER: 13.16, valid WER: 34.90
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_fy-NL/CKPT+2026-02-09+20-27-22+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_fy-NL/CKPT+2026-02-09+20-24-24+00
+speechbrain.utils.epoch_loop - Going into epoch 5
+speechbrain.utils.train_logger - epoch: 5, lr: 1.92e-04 - train loss: 4.03e-02 - valid loss: 9.40e-01, valid CER: 12.79, valid WER: 33.75
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_fy-NL/CKPT+2026-02-09+20-30-21+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_fy-NL/CKPT+2026-02-09+20-27-22+00
+speechbrain.utils.epoch_loop - Going into epoch 6
+speechbrain.nnet.schedulers - Changing lr from 0.00019 to 0.00015
+speechbrain.utils.train_logger - epoch: 6, lr: 1.92e-04 - train loss: 2.02e-02 - valid loss: 9.43e-01, valid CER: 12.88, valid WER: 33.79
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_fy-NL/CKPT+2026-02-09+20-33-21+00
+speechbrain.utils.epoch_loop - Going into epoch 7
+speechbrain.nnet.schedulers - Changing lr from 0.00015 to 0.00012
+speechbrain.utils.train_logger - epoch: 7, lr: 1.54e-04 - train loss: 1.06e-02 - valid loss: 9.42e-01, valid CER: 12.67, valid WER: 33.01
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_fy-NL/CKPT+2026-02-09+20-36-21+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_fy-NL/CKPT+2026-02-09+20-30-21+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_fy-NL/CKPT+2026-02-09+20-33-21+00
+speechbrain.utils.epoch_loop - Going into epoch 8
+speechbrain.nnet.schedulers - Changing lr from 0.00012 to 9.8e-05
+speechbrain.utils.train_logger - epoch: 8, lr: 1.23e-04 - train loss: 5.48e-03 - valid loss: 9.45e-01, valid CER: 12.44, valid WER: 33.10
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_fy-NL/CKPT+2026-02-09+20-39-22+00
+speechbrain.utils.epoch_loop - Going into epoch 9
+speechbrain.nnet.schedulers - Changing lr from 9.8e-05 to 7.9e-05
+speechbrain.utils.train_logger - epoch: 9, lr: 9.83e-05 - train loss: 3.54e-03 - valid loss: 9.45e-01, valid CER: 12.37, valid WER: 32.64
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_fy-NL/CKPT+2026-02-09+20-42-24+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_fy-NL/CKPT+2026-02-09+20-39-22+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_fy-NL/CKPT+2026-02-09+20-36-21+00
+speechbrain.utils.epoch_loop - Going into epoch 10
+speechbrain.nnet.schedulers - Changing lr from 7.9e-05 to 6.3e-05
+speechbrain.utils.train_logger - epoch: 10, lr: 7.86e-05 - train loss: 2.31e-03 - valid loss: 9.48e-01, valid CER: 12.21, valid WER: 32.50
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_fy-NL/CKPT+2026-02-09+20-45-28+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_fy-NL/CKPT+2026-02-09+20-42-24+00
+root - [BitFit] loaded 133 bias tensors from results/whisper-small/BitFit/0/bitfit_adapters/fy-NL
+common_voice_prepare - Acquiring lock on /DB/CL-MASR/.prepare.lock...
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Locale: fy-NL
+common_voice_prepare - Computing clip durations...
+common_voice_prepare - Clip durations for train.tsv already computed
+common_voice_prepare - Clip durations for dev.tsv already computed
+common_voice_prepare - Clip durations for test.tsv already computed
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Merging TSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/fy-NL/train_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 19823.98630839005
+common_voice_prepare - Added 3917 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/fy-NL/dev_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3603.85004988662
+common_voice_prepare - Added 708 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/fy-NL/test_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3605.314988662132
+common_voice_prepare - Added 689 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Creating data manifest CSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/train.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/dev.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/test.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Releasing lock on /DB/CL-MASR/.prepare.lock...
+speechbrain.core - Run option precision from hparams is used
+speechbrain.core - Run option max_grad_norm from hparams is used
+speechbrain.core - Run option nonfinite_patience from hparams is used
+speechbrain.core - Run option ckpt_interval_minutes from hparams is used
+speechbrain.core - Gradscaler enabled: `True`
+speechbrain.core - Using training precision: `--precision=fp16`
+speechbrain.core - Using evaluation precision: `--eval_precision=fp32`
+speechbrain.core - The model has no trainable parameters!
+speechbrain.core - ASR Model Statistics:
+* Total Number of Trainable Parameters: 0
+* Total Number of Parameters: 241.7M
+* Trainable Parameters represent 0.0000% of the total size.
+speechbrain.utils.train_logger - Epoch loaded: 10 - test loss: 8.69e-01, test CER: 12.39, test WER: 32.51
+common_voice_prepare - Acquiring lock on /DB/CL-MASR/.prepare.lock...
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Locale: ia
+common_voice_prepare - Computing clip durations...
+common_voice_prepare - Clip durations for train.tsv already computed
+common_voice_prepare - Clip durations for dev.tsv already computed
+common_voice_prepare - Clip durations for test.tsv already computed
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Merging TSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/ia/train_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 18774.840000000044
+common_voice_prepare - Added 5018 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/ia/dev_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3604.932004535145
+common_voice_prepare - Added 701 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/ia/test_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3602.406231292521
+common_voice_prepare - Added 841 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Creating data manifest CSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/train.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/dev.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/test.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Releasing lock on /DB/CL-MASR/.prepare.lock...
+root - [BitFit] locale=ia freeze_encoder=True bitfit_ln=True trainable=39,969,792/241,742,592 (16.5340%)
+root - [BitFit] sample trainables:
+  decoder.embed_tokens.weight
+  decoder.layers.0.self_attn.v_proj.bias
+  decoder.layers.0.self_attn.q_proj.bias
+  decoder.layers.0.self_attn.out_proj.bias
+  decoder.layers.0.self_attn_layer_norm.bias
+  decoder.layers.0.encoder_attn.v_proj.bias
+  decoder.layers.0.encoder_attn.q_proj.bias
+  decoder.layers.0.encoder_attn.out_proj.bias
+  decoder.layers.0.encoder_attn_layer_norm.bias
+  decoder.layers.0.fc1.bias
+  decoder.layers.0.fc2.bias
+  decoder.layers.0.final_layer_norm.bias
+  decoder.layers.1.self_attn.v_proj.bias
+  decoder.layers.1.self_attn.q_proj.bias
+  decoder.layers.1.self_attn.out_proj.bias
+  decoder.layers.1.self_attn_layer_norm.bias
+  decoder.layers.1.encoder_attn.v_proj.bias
+  decoder.layers.1.encoder_attn.q_proj.bias
+  decoder.layers.1.encoder_attn.out_proj.bias
+  decoder.layers.1.encoder_attn_layer_norm.bias
+  decoder.layers.1.fc1.bias
+  decoder.layers.1.fc2.bias
+  decoder.layers.1.final_layer_norm.bias
+  decoder.layers.2.self_attn.v_proj.bias
+  decoder.layers.2.self_attn.q_proj.bias
+  decoder.layers.2.self_attn.out_proj.bias
+  decoder.layers.2.self_attn_layer_norm.bias
+  decoder.layers.2.encoder_attn.v_proj.bias
+  decoder.layers.2.encoder_attn.q_proj.bias
+  decoder.layers.2.encoder_attn.out_proj.bias
+  decoder.layers.2.encoder_attn_layer_norm.bias
+  decoder.layers.2.fc1.bias
+  decoder.layers.2.fc2.bias
+  decoder.layers.2.final_layer_norm.bias
+  decoder.layers.3.self_attn.v_proj.bias
+  decoder.layers.3.self_attn.q_proj.bias
+  decoder.layers.3.self_attn.out_proj.bias
+  decoder.layers.3.self_attn_layer_norm.bias
+  decoder.layers.3.encoder_attn.v_proj.bias
+  decoder.layers.3.encoder_attn.q_proj.bias
+  decoder.layers.3.encoder_attn.out_proj.bias
+  decoder.layers.3.encoder_attn_layer_norm.bias
+  decoder.layers.3.fc1.bias
+  decoder.layers.3.fc2.bias
+  decoder.layers.3.final_layer_norm.bias
+  decoder.layers.4.self_attn.v_proj.bias
+  decoder.layers.4.self_attn.q_proj.bias
+  decoder.layers.4.self_attn.out_proj.bias
+  decoder.layers.4.self_attn_layer_norm.bias
+  decoder.layers.4.encoder_attn.v_proj.bias
+speechbrain.core - Run option precision from hparams is used
+speechbrain.core - Run option max_grad_norm from hparams is used
+speechbrain.core - Run option nonfinite_patience from hparams is used
+speechbrain.core - Run option ckpt_interval_minutes from hparams is used
+speechbrain.core - Gradscaler enabled: `True`
+speechbrain.core - Using training precision: `--precision=fp16`
+speechbrain.core - Using evaluation precision: `--eval_precision=fp32`
+speechbrain.core - ASR Model Statistics:
+* Total Number of Trainable Parameters: 40.0M
+* Total Number of Parameters: 241.7M
+* Trainable Parameters represent 16.5340% of the total size.
+speechbrain.utils.checkpoints - Would load a checkpoint here, but none found yet.
+speechbrain.utils.epoch_loop - Going into epoch 1
+speechbrain.utils.train_logger - epoch: 1, lr: 3.00e-04 - train loss: 9.79e-01 - valid loss: 6.39e-01, valid CER: 10.98, valid WER: 21.87
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ia/CKPT+2026-02-09+20-49-59+00
+speechbrain.utils.epoch_loop - Going into epoch 2
+speechbrain.nnet.schedulers - Changing lr from 0.0003 to 0.00024
+speechbrain.utils.train_logger - epoch: 2, lr: 3.00e-04 - train loss: 2.63e-01 - valid loss: 6.97e-01, valid CER: 8.63, valid WER: 19.11
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ia/CKPT+2026-02-09+20-52-39+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_ia/CKPT+2026-02-09+20-49-59+00
+speechbrain.utils.epoch_loop - Going into epoch 3
+speechbrain.utils.train_logger - epoch: 3, lr: 2.40e-04 - train loss: 1.02e-01 - valid loss: 6.69e-01, valid CER: 8.08, valid WER: 17.64
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ia/CKPT+2026-02-09+20-55-21+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_ia/CKPT+2026-02-09+20-52-39+00
+speechbrain.utils.epoch_loop - Going into epoch 4
+speechbrain.nnet.schedulers - Changing lr from 0.00024 to 0.00019
+speechbrain.utils.train_logger - epoch: 4, lr: 2.40e-04 - train loss: 5.04e-02 - valid loss: 7.00e-01, valid CER: 6.04, valid WER: 15.48
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ia/CKPT+2026-02-09+20-58-03+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_ia/CKPT+2026-02-09+20-55-21+00
+speechbrain.utils.epoch_loop - Going into epoch 5
+speechbrain.utils.train_logger - epoch: 5, lr: 1.92e-04 - train loss: 2.66e-02 - valid loss: 6.80e-01, valid CER: 5.95, valid WER: 15.60
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ia/CKPT+2026-02-09+21-00-41+00
+speechbrain.utils.epoch_loop - Going into epoch 6
+speechbrain.nnet.schedulers - Changing lr from 0.00019 to 0.00015
+speechbrain.utils.train_logger - epoch: 6, lr: 1.92e-04 - train loss: 1.25e-02 - valid loss: 6.90e-01, valid CER: 5.51, valid WER: 15.19
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ia/CKPT+2026-02-09+21-03-21+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_ia/CKPT+2026-02-09+21-00-41+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_ia/CKPT+2026-02-09+20-58-03+00
+speechbrain.utils.epoch_loop - Going into epoch 7
+speechbrain.nnet.schedulers - Changing lr from 0.00015 to 0.00012
+speechbrain.utils.train_logger - epoch: 7, lr: 1.54e-04 - train loss: 7.62e-03 - valid loss: 6.98e-01, valid CER: 6.54, valid WER: 16.39
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ia/CKPT+2026-02-09+21-06-03+00
+speechbrain.utils.epoch_loop - Going into epoch 8
+speechbrain.utils.train_logger - epoch: 8, lr: 1.23e-04 - train loss: 5.65e-03 - valid loss: 6.87e-01, valid CER: 6.65, valid WER: 16.32
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ia/CKPT+2026-02-09+21-08-45+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_ia/CKPT+2026-02-09+21-06-03+00
+speechbrain.utils.epoch_loop - Going into epoch 9
+speechbrain.nnet.schedulers - Changing lr from 0.00012 to 9.8e-05
+speechbrain.utils.train_logger - epoch: 9, lr: 1.23e-04 - train loss: 3.25e-03 - valid loss: 7.08e-01, valid CER: 6.50, valid WER: 16.63
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ia/CKPT+2026-02-09+21-11-27+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_ia/CKPT+2026-02-09+21-08-45+00
+speechbrain.utils.epoch_loop - Going into epoch 10
+speechbrain.utils.train_logger - epoch: 10, lr: 9.83e-05 - train loss: 1.89e-03 - valid loss: 7.05e-01, valid CER: 6.40, valid WER: 16.44
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/whisper-small/BitFit/0/save/bitfit_ia/CKPT+2026-02-09+21-14-08+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/whisper-small/BitFit/0/save/bitfit_ia/CKPT+2026-02-09+21-11-27+00
+root - [BitFit] loaded 133 bias tensors from results/whisper-small/BitFit/0/bitfit_adapters/ia
+common_voice_prepare - Acquiring lock on /DB/CL-MASR/.prepare.lock...
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Locale: ia
+common_voice_prepare - Computing clip durations...
+common_voice_prepare - Clip durations for train.tsv already computed
+common_voice_prepare - Clip durations for dev.tsv already computed
+common_voice_prepare - Clip durations for test.tsv already computed
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Merging TSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/ia/train_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 18774.840000000044
+common_voice_prepare - Added 5018 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/ia/dev_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3604.932004535145
+common_voice_prepare - Added 701 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/ia/test_with_duration.tsv)...
+common_voice_prepare - Total duration (s): 3602.406231292521
+common_voice_prepare - Added 841 rows
+common_voice_prepare - Writing output TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Done!
+common_voice_prepare - ----------------------------------------------------------------------
+common_voice_prepare - Creating data manifest CSV files...
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/train_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/train.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/dev_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/dev.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Reading input TSV file (/DB/CL-MASR/test_with_duration.tsv)...
+common_voice_prepare - Writing output CSV file (/DB/CL-MASR/test.csv)...
+common_voice_prepare - Done!
+common_voice_prepare - Releasing lock on /DB/CL-MASR/.prepare.lock...
+speechbrain.core - Run option precision from hparams is used
+speechbrain.core - Run option max_grad_norm from hparams is used
+speechbrain.core - Run option nonfinite_patience from hparams is used
+speechbrain.core - Run option ckpt_interval_minutes from hparams is used
+speechbrain.core - Gradscaler enabled: `True`
+speechbrain.core - Using training precision: `--precision=fp16`
+speechbrain.core - Using evaluation precision: `--eval_precision=fp32`
+speechbrain.core - The model has no trainable parameters!
+speechbrain.core - ASR Model Statistics:
+* Total Number of Trainable Parameters: 0
+* Total Number of Parameters: 241.7M
+* Trainable Parameters represent 0.0000% of the total size.
+speechbrain.utils.train_logger - Epoch loaded: 10 - test loss: 7.15e-01, test CER: 7.04, test WER: 18.48
+root - Time elapsed: 23193.761395931244 seconds
