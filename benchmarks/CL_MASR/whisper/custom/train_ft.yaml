@@ -12,12 +12,12 @@ skip_test: False
 
 # Data preparation
 base_locales: [en, zh-CN, de, es, ru, fr, pt, ja, tr, pl]
-new_locales: [rw, eo, kab, lg, mhr, ckb, ab, kmr, fy-NL, ia]
+new_locales: [eo, fy-NL, ia, kmr, mhr]
 data_folder: !PLACEHOLDER
 max_durations: [36000, 3600, 3600]  # Maximum total durations in seconds for train, dev, and test splits for each locale
 
 # Output directories
-output_folder: !ref results/whisper-small-test-indomain/<experiment_name>/<seed>
+output_folder: !ref results/whisper-small/<experiment_name>/<seed>
 save_folder: !ref <output_folder>/save
 
 # Training parameters

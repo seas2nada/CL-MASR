@@ -1,29 +1,30 @@
 # ############################################################################
 # Model: Whisper (encoder-decoder) + cross-entropy loss
-# Authors: Luca Della Libera 2023, Pooneh Mousavi 2023
+# Authors: Luca Della Libera 2023
 # ############################################################################
 
-experiment_name: EWC
+experiment_name: CAMLoRA
 
 seed: 0
 __set_seed: !apply:torch.manual_seed [!ref <seed>]
 
 skip_test: False
-skip_ewc: False
 
 # Data preparation
-base_locales: [en, zh-CN, de, es, ru, fr, pt, ja, tr, pl]
-new_locales: [eo, fy-NL, ia, kmr, mhr]
+# base_locales: [en, zh-CN, de, es, ru, fr, pt, ja, tr, pl]
+base_locales: [en]
+new_locales: [rw, eo, kab, lg, mhr, ckb, ab, kmr, fy-NL, ia]
+# new_locales: [eo, ia]
 data_folder: !PLACEHOLDER
 max_durations: [36000, 3600, 3600]  # Maximum total durations in seconds for train, dev, and test splits for each locale
 
 # Output directories
-output_folder: !ref results/whisper-small/<experiment_name>/<seed>
+output_folder: !ref results/<whisper_variant>/<experiment_name>/<seed>
 save_folder: !ref <output_folder>/save
 
 # Training parameters
 train_batch_size: 6
-valid_batch_size: 1
+valid_batch_size: 16
 train_num_workers: 6
 valid_num_workers: 6
 
@@ -38,8 +39,19 @@ num_epochs: 10
 lr: 0.0003
 improvement_threshold: 0.0025
 annealing_factor: 0.8
-ewc_lambda: 5.0
-ewc_alpha: 0.5
+lora_r: 32
+lora_alpha: 64
+lora_bias: "none"
+lora_target_modules: ["q_proj","k_proj","v_proj","out_proj","fc1","fc2","proj_out"]
+train_embeddings: True
+consolidate_every: 4          # K (언어 4개마다 merge)
+cam_steps: 800                # merge 최적화 step 수 (few-step)
+cam_lr: 5.0e-4
+cam_lambda: 1.0               # KL 보존 강도
+cam_temperature: 1.0
+cam_dev_max_batches: 20       # 각 locale dev에서 최대 배치 수(merge용)
+cam_topk_kl: 0                # 0이면 full vocab, >0이면 top-k KL로 가속
+cam_merge_weights: "uniform"  # uniform만 구현(필요시 loss-based 확장)
 
 whisper_variant: whisper-large-v2
 encoder_only: False
