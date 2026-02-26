@@ -9,9 +9,9 @@ python analyze_logs.py $OUTPUT_DIR
 #   --new_locales "ab,ckb,eo,fy-NL,ia,kab,kmr,lg,mhr,rw"
 
 python summarize_final_wer.py $OUTPUT_DIR \
-  --last_locale ia \
+  --last_locale mhr \
   --base_locales "en,zh-CN,de,es,ru,fr,pt,ja,tr,pl" \
-  --new_locales "ab,ckb,eo,fy-NL,ia,kab,kmr,lg,mhr,rw"
+  --new_locales "eo,fy-NL,ia,kmr,mhr"
 
 # python summarize_final_wer.py $OUTPUT_DIR \
 #   --last_locale eo \

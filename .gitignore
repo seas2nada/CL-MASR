@@ -159,3 +159,5 @@ dmypy.json
 
 # Mac OS
 .DS_Store
+
+*/*/*/*/speechbrain*
